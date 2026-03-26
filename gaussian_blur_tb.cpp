@@ -83,10 +83,15 @@ static void fill_hls_input(
     uint8_t    src[TB_HEIGHT][TB_WIDTH],
     pixel_t    dst[IMG_HEIGHT][IMG_WIDTH])
 {
-    memset(dst, 0, sizeof(pixel_t) * IMG_HEIGHT * IMG_WIDTH);
-    for (int r = 0; r < TB_HEIGHT; r++)
-        for (int c = 0; c < TB_WIDTH; c++)
-            dst[r][c] = src[r][c];
+    // Clamp-fill the full IMG_HEIGHT x IMG_WIDTH array so that HLS border
+    // clamping (which uses IMG_HEIGHT/IMG_WIDTH) reads edge pixels, not zeros.
+    for (int r = 0; r < IMG_HEIGHT; r++) {
+        int sr = (r < TB_HEIGHT) ? r : TB_HEIGHT - 1;
+        for (int c = 0; c < IMG_WIDTH; c++) {
+            int sc = (c < TB_WIDTH) ? c : TB_WIDTH - 1;
+            dst[r][c] = src[sr][sc];
+        }
+    }
 }
 
 // Read HLS output back into a plain uint8 array

@@ -1,4 +1,5 @@
 #include "gaussian_blur_hls.h"
+#include <cstdint>
 
 // 1D Gaussian kernel coefficients — applied horizontally then vertically
 // Full kernel is the outer product: [1,4,6,4,1]^T * [1,4,6,4,1] / 256

@@ -1,6 +1,7 @@
 #ifndef GAUSSIAN_BLUR_HLS_H
 #define GAUSSIAN_BLUR_HLS_H
 
+#define NDEBUG      // prevents ap_int.h from pulling in assert.h
 #include "ap_int.h"
 
 // --- Image dimensions — change to match your input matrices ---
