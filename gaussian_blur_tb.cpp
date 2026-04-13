@@ -5,28 +5,34 @@
 #include "gaussian_blur_hls.h"
 
 // -----------------------------------------------------------------------
-// Testbench for gaussian_blur()
+// Testbench for gaussian_blur() — AXI Stream version
 //
 // Uses a small image so C simulation runs quickly.
 // Three test patterns are checked against a software reference:
-//   1. Impulse    — single white pixel in the centre; output should look
-//                   like the 5x5 kernel itself
+//   1. Impulse    — single white pixel in the centre
 //   2. Gradient   — horizontal ramp 0-255; blur should smooth it slightly
 //   3. Checkerboard — high-frequency pattern; blur should reduce contrast
 //
-// Pass criterion: every output pixel is within ±1 of the reference
+// Output alignment note:
+//   The streaming filter is causal, so output pixel (r, c) in the output
+//   stream corresponds to the blur *centered* at input position
+//   (r - KERNEL_HALF, c - KERNEL_HALF).  The comparison therefore checks
+//   hls_out[r + KERNEL_HALF][c + KERNEL_HALF] against ref_out[r][c] for
+//   the interior region where both are fully defined:
+//     r  in [0,          TB_HEIGHT - 1 - KERNEL_HALF]
+//     c  in [0,          TB_WIDTH  - 1 - KERNEL_HALF]
+//
+// Pass criterion: every compared pixel is within ±1 of the reference
 // (allows for integer rounding differences between HW and SW paths).
 // -----------------------------------------------------------------------
 
-// Use a smaller image for simulation speed
 #define TB_HEIGHT 16
 #define TB_WIDTH  16
 
-// Tolerance for integer rounding
 #define MAX_ERROR 1
 
 // -----------------------------------------------------------------------
-// Software reference: same separable 5x5 Gaussian with clamp-to-edge
+// Software reference: centred 5x5 Gaussian with clamp-to-edge borders
 // -----------------------------------------------------------------------
 static const uint8_t KERNEL[KERNEL_SIZE] = {1, 4, 6, 4, 1};
 
@@ -60,7 +66,7 @@ static void ref_gaussian_blur(
                 if (ri >= TB_HEIGHT)  ri = TB_HEIGHT - 1;
                 sum += tmp[ri][c] * KERNEL[k];
             }
-            output[r][c] = (uint8_t)(sum / KERNEL_SUM + 0.5f);  // round to nearest
+            output[r][c] = (uint8_t)(sum / KERNEL_SUM + 0.5f);
         }
     }
 }
@@ -78,44 +84,49 @@ static void print_image(const char* label, uint8_t img[TB_HEIGHT][TB_WIDTH])
     }
 }
 
-// Copy uint8 array into pixel_t (ap_uint<8>) array expected by HLS function
-static void fill_hls_input(
-    uint8_t    src[TB_HEIGHT][TB_WIDTH],
-    pixel_t    dst[IMG_HEIGHT][IMG_WIDTH])
+// Push a TB_HEIGHT x TB_WIDTH image into an AXI Stream, one pixel per beat.
+static void fill_stream(
+    hls::stream<axis_t> &src,
+    uint8_t img[TB_HEIGHT][TB_WIDTH])
 {
-    // Clamp-fill the full IMG_HEIGHT x IMG_WIDTH array so that HLS border
-    // clamping (which uses IMG_HEIGHT/IMG_WIDTH) reads edge pixels, not zeros.
-    for (int r = 0; r < IMG_HEIGHT; r++) {
-        int sr = (r < TB_HEIGHT) ? r : TB_HEIGHT - 1;
-        for (int c = 0; c < IMG_WIDTH; c++) {
-            int sc = (c < TB_WIDTH) ? c : TB_WIDTH - 1;
-            dst[r][c] = src[sr][sc];
+    for (int r = 0; r < TB_HEIGHT; r++) {
+        for (int c = 0; c < TB_WIDTH; c++) {
+            axis_t pix;
+            pix.data = img[r][c];
+            pix.keep = 0xFF;
+            pix.strb = 0xFF;
+            pix.last = (r == TB_HEIGHT - 1 && c == TB_WIDTH - 1) ? 1 : 0;
+            src.write(pix);
         }
     }
 }
 
-// Read HLS output back into a plain uint8 array
-static void read_hls_output(
-    pixel_t    src[IMG_HEIGHT][IMG_WIDTH],
-    uint8_t    dst[TB_HEIGHT][TB_WIDTH])
+// Drain a TB_HEIGHT x TB_WIDTH output stream into a plain array.
+static void drain_stream(
+    hls::stream<axis_t> &dst,
+    uint8_t out[TB_HEIGHT][TB_WIDTH])
 {
     for (int r = 0; r < TB_HEIGHT; r++)
         for (int c = 0; c < TB_WIDTH; c++)
-            dst[r][c] = (uint8_t)src[r][c];
+            out[r][c] = (uint8_t)dst.read().data;
 }
 
-// Compare HLS output against software reference; returns number of mismatches
+// Compare HLS output against software reference.
+// Accounts for the KERNEL_HALF-row / KERNEL_HALF-column causal delay:
+//   hls_out[r + KERNEL_HALF][c + KERNEL_HALF] should match ref_out[r][c].
+// Only the interior region where both values are fully defined is checked.
 static int compare(
     uint8_t hls_out[TB_HEIGHT][TB_WIDTH],
     uint8_t ref_out[TB_HEIGHT][TB_WIDTH])
 {
     int errors = 0;
-    for (int r = 0; r < TB_HEIGHT; r++) {
-        for (int c = 0; c < TB_WIDTH; c++) {
-            int diff = abs((int)hls_out[r][c] - (int)ref_out[r][c]);
+    for (int r = 0; r < TB_HEIGHT - KERNEL_HALF; r++) {
+        for (int c = 0; c < TB_WIDTH - KERNEL_HALF; c++) {
+            int diff = abs((int)hls_out[r + KERNEL_HALF][c + KERNEL_HALF]
+                         - (int)ref_out[r][c]);
             if (diff > MAX_ERROR) {
-                std::cout << "MISMATCH at (" << r << "," << c << "): "
-                          << "HLS=" << (int)hls_out[r][c]
+                std::cout << "MISMATCH at ref(" << r << "," << c << "): "
+                          << "HLS=" << (int)hls_out[r + KERNEL_HALF][c + KERNEL_HALF]
                           << "  REF=" << (int)ref_out[r][c]
                           << "  diff=" << diff << "\n";
                 errors++;
@@ -130,35 +141,35 @@ static int compare(
 // -----------------------------------------------------------------------
 int main()
 {
-    // Static so large arrays don't blow the stack (HLS sim requirement)
-    static pixel_t hls_in [IMG_HEIGHT][IMG_WIDTH];
-    static pixel_t hls_out[IMG_HEIGHT][IMG_WIDTH];
+    static uint8_t in      [TB_HEIGHT][TB_WIDTH];
+    static uint8_t out_hls [TB_HEIGHT][TB_WIDTH];
+    static uint8_t out_ref [TB_HEIGHT][TB_WIDTH];
 
-    static uint8_t in [TB_HEIGHT][TB_WIDTH];
-    static uint8_t out_hls[TB_HEIGHT][TB_WIDTH];
-    static uint8_t out_ref[TB_HEIGHT][TB_WIDTH];
+    hls::stream<axis_t> src("src");
+    hls::stream<axis_t> dst("dst");
 
     int total_errors = 0;
 
     // ----------------------------------------------------------------
     // Test 1: Impulse
-    // Single white pixel at centre — output should match the 5x5 kernel
+    // Single white pixel at centre — output should look like the kernel
     // ----------------------------------------------------------------
     std::cout << "=== Test 1: Impulse ===\n";
     memset(in, 0, sizeof(in));
     in[TB_HEIGHT / 2][TB_WIDTH / 2] = 255;
 
     ref_gaussian_blur(in, out_ref);
-    fill_hls_input(in, hls_in);
-    gaussian_blur(hls_in, hls_out);
-    read_hls_output(hls_out, out_hls);
+    fill_stream(src, in);
+    gaussian_blur(src, dst, TB_HEIGHT, TB_WIDTH);
+    drain_stream(dst, out_hls);
 
-    print_image("Input",     in);
+    print_image("Input",      in);
     print_image("HLS output", out_hls);
     print_image("Reference",  out_ref);
 
     int e1 = compare(out_hls, out_ref);
-    std::cout << "Test 1: " << (e1 == 0 ? "PASS" : "FAIL") << " (" << e1 << " mismatches)\n";
+    std::cout << "Test 1: " << (e1 == 0 ? "PASS" : "FAIL")
+              << " (" << e1 << " mismatches)\n";
     total_errors += e1;
 
     // ----------------------------------------------------------------
@@ -170,17 +181,18 @@ int main()
             in[r][c] = (uint8_t)((c * 255) / (TB_WIDTH - 1));
 
     ref_gaussian_blur(in, out_ref);
-    fill_hls_input(in, hls_in);
-    gaussian_blur(hls_in, hls_out);
-    read_hls_output(hls_out, out_hls);
+    fill_stream(src, in);
+    gaussian_blur(src, dst, TB_HEIGHT, TB_WIDTH);
+    drain_stream(dst, out_hls);
 
     int e2 = compare(out_hls, out_ref);
-    std::cout << "Test 2: " << (e2 == 0 ? "PASS" : "FAIL") << " (" << e2 << " mismatches)\n";
+    std::cout << "Test 2: " << (e2 == 0 ? "PASS" : "FAIL")
+              << " (" << e2 << " mismatches)\n";
     total_errors += e2;
 
     // ----------------------------------------------------------------
     // Test 3: Checkerboard (high-frequency pattern)
-    // Blur should reduce contrast — no pixel should stay at 255 or 0
+    // Blur should reduce contrast — no interior pixel should stay at 255 or 0
     // ----------------------------------------------------------------
     std::cout << "\n=== Test 3: Checkerboard ===\n";
     for (int r = 0; r < TB_HEIGHT; r++)
@@ -188,18 +200,17 @@ int main()
             in[r][c] = ((r + c) % 2 == 0) ? 255 : 0;
 
     ref_gaussian_blur(in, out_ref);
-    fill_hls_input(in, hls_in);
-    gaussian_blur(hls_in, hls_out);
-    read_hls_output(hls_out, out_hls);
+    fill_stream(src, in);
+    gaussian_blur(src, dst, TB_HEIGHT, TB_WIDTH);
+    drain_stream(dst, out_hls);
 
     int e3 = compare(out_hls, out_ref);
-    std::cout << "Test 3: " << (e3 == 0 ? "PASS" : "FAIL") << " (" << e3 << " mismatches)\n";
+    std::cout << "Test 3: " << (e3 == 0 ? "PASS" : "FAIL")
+              << " (" << e3 << " mismatches)\n";
     total_errors += e3;
 
     // ----------------------------------------------------------------
-    // Final result — Vitis HLS checks the return value:
-    //   0 → simulation passed
-    //  >0 → simulation failed
+    // Vitis HLS checks the return value: 0 = pass, >0 = fail
     // ----------------------------------------------------------------
     std::cout << "\n=== Overall: " << (total_errors == 0 ? "PASS" : "FAIL")
               << " (" << total_errors << " total mismatches) ===\n";
