@@ -57,7 +57,9 @@ void edge_detect(
                        + (accum_t)(-1)*win[2][0] + (accum_t)(-2)*win[2][1] + (accum_t)(-1)*win[2][2];
 
             // ---- 5. L1 magnitude approximation (no sqrt needed) ----
-            accum_t mag = (Gx < 0 ? -Gx : Gx) + (Gy < 0 ? -Gy : Gy);
+            // Cast resolves ap_int width ambiguity: negation promotes ap_int<16>
+            // to ap_int<17>, making the ternary branches incompatible without it.
+            accum_t mag = (accum_t)(Gx < 0 ? (ap_int<17>)(-Gx) : (ap_int<17>)(Gx)) + ((Gy < 0) ? (ap_int<17>)(-Gy) : (ap_int<17>)(Gy));
 
             // ---- 6. Threshold; suppress the 2-pixel border ----
             pixel_t result;
