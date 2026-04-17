@@ -1,7 +1,8 @@
 #ifndef BLUR_EDGE_HLS_H
 #define BLUR_EDGE_HLS_H
 
-#define NDEBUG
+//#define NDEBUG
+#include <cstdint>
 #include "ap_int.h"
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
@@ -11,9 +12,9 @@
 
 #define KERNEL_SIZE 5
 
-typedef ap_uint<8>   pixel_t;
+typedef ap_uint<8> pixel_t;
 // fits 255 * 16 * 16 = 65280 (need 17 bits; 20 for margin)
-typedef ap_int<16>   accum_t;   // signed — Sobel produces negative gradients
+typedef ap_int<16> accum_t;   // signed — Sobel produces negative gradients
 typedef ap_axiu<8,1,1,1> axis_t;
 
 // height/width allows the tb to use a small image without processing

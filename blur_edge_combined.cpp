@@ -1,8 +1,20 @@
 #include "blur_edge_combined.h"
-#include <cstdint>
 
-static const uint8_t KERNEL[KERNEL_SIZE] = {1, 4, 6, 4, 1};
-static const uint8_t KERNEL[KERNEL_SIZE] = {1, 4, 6, 4, 1};
+// using ap_uint<4> for optimization
+// also experimenting with putting entire matrix in memory to avoid calculation
+static const ap_uint<5> KERNEL[KERNEL_SIZE][KERNEL_SIZE] = {{1,  4,  7,  4, 1},
+                                                            {4, 16, 26, 16, 4},
+                                                            {7, 26, 41, 26, 7},
+                                                            {4, 16, 26, 16, 4},
+                                                            {1,  4,  6,  4, 1}};
+
+// gx accessed with SOBEL[row][col] gy with SOBEL[col][row] - transpose matrix
+static const ap_int<5> SOBEL[KERNEL_SIZE][KERNEL_SIZE]={{-1,  -2, 0,  2, 1},
+                                                        {-4,  -8, 0,  8, 4},
+                                                        {-6, -12, 0, 12, 6},
+                                                        {-4,  -8, 0,  8, 4},
+                                                        {-1,  -2, 0,  2, 1}};
+                                                        
 
 void blur_edge (
     hls::stream<axis_t> &src,
@@ -56,8 +68,7 @@ void blur_edge (
                 #pragma HLS UNROLL
                 int ri = r - KERNEL_SIZE + 1 + kr;
                 if (ri < 0) ri = 0;
-                window[kr][KERNEL_SIZE - 1] = (ri == r) ? px
-                                                         : line_buf[ri % KERNEL_SIZE][c];
+                window[kr][KERNEL_SIZE - 1] = (ri == r) ? px : line_buf[ri % KERNEL_SIZE][c];
             }
 
             // ---- 5. Left-border clamping ----
@@ -81,16 +92,20 @@ void blur_edge (
             }
 
             // calculate sobel gradients 5x5 kernel
-            accum_t Gx = (accum_t)(-1)*win[0][0] + (accum_t)(+1)*win[0][2]
-                       + (accum_t)(-2)*win[1][0] + (accum_t)(+2)*win[1][2]
-                       + (accum_t)(-1)*win[2][0] + (accum_t)(+1)*win[2][2];
-
-            accum_t Gy = (accum_t)(+1)*win[0][0] + (accum_t)(+2)*win[0][1] + (accum_t)(+1)*win[0][2]
-                       + (accum_t)(-1)*win[2][0] + (accum_t)(-2)*win[2][1] + (accum_t)(-1)*win[2][2];
+            accum_t Gx = 0
+            accum_t Gy = 0
+            for(int r = 0; r < KERNEL_SIZE; r++) {
+                #pragma HLS UNROLL
+                for(int c = 0; c < KERNEL_SIZE; c++) {
+                    #pragma HLS UNROLL
+                    win_n = * win[r][c]
+                    Gx += (accum_t)SOBEL[r][c] * win_n
+                    Gy += (accum_t)SOBEL[c][r] * win_n
+                }
+            }
 
             // ---- 5. L1 magnitude approximation (no sqrt needed) ----
-            // Cast resolves ap_int width ambiguity: negation promotes ap_int<16>
-            // to ap_int<17>, making the ternary branches incompatible without it.
+            // Cast resolves ap_int width ambiguity: negation promotes ap_int<16> to ap_int<17>
             accum_t mag = (accum_t)(Gx < 0 ? (ap_int<17>)(-Gx) : (ap_int<17>)(Gx)) + ((Gy < 0) ? (ap_int<17>)(-Gy) : (ap_int<17>)(Gy));
 
 
