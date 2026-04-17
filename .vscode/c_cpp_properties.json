@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Vitis HLS",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Xilinx/Vitis_HLS/2024.1/include"
+            ],
+            "defines": [
+                "__SYNTHESIS__"
+            ],
+            "cppStandard": "c++14",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
