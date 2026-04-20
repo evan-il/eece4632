@@ -1,0 +1,26 @@
+[
+  {
+    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism",
+    "arguments": [
+      "C:\\Xilinx\\Vitis_HLS\\2024.1\\vcxx\\libexec\\clang++.exe",
+      "-fhls",
+      "-hls-syn-headers-dir=C:\\Xilinx\\Vitis_HLS\\2024.1\\common\\technology\\autopilot",
+      "",
+      "-c",
+      "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp"
+    ],
+    "file": "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp"
+  },
+  {
+    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism",
+    "arguments": [
+      "C:\\Xilinx\\Vitis_HLS\\2024.1\\vcxx\\libexec\\clang++.exe",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=C:\\Xilinx\\Vitis_HLS\\2024.1\\include",
+      "",
+      "-c",
+      "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined_tb.cpp"
+    ],
+    "file": "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined_tb.cpp"
+  }
+]

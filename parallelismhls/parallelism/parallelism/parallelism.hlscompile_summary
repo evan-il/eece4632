@@ -1,0 +1,246 @@
+<ENTRY>
+{
+ "thisFile": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\parallelism.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "04/20/26 14:07:55",
+ "timestampMillis": "2886982071",
+ "buildStep": {
+  "cmdId": "5b82e54b-d4cf-48ff-8072-ba2cdff3efe5",
+  "name": "v++",
+  "logFile": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\logs\\parallelism.steps.log",
+  "commandLine": "C:/Xilinx/Vitis/2024.1/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\hls_config.cfg --work_dir parallelism ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\hls_config.cfg",
+   "--work_dir",
+   "parallelism"
+  ],
+  "iniFiles": [
+   {
+    "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\hls_config.cfg",
+    "content": "part=xczu3eg-sfvc784-2-e\n\n[hls]\nflow_target=vivado\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.file=C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp\nsyn.file=C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.h\ntb.file=C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined_tb.cpp\nsyn.top=blur_edge"
+   }
+  ],
+  "cwd": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "04/20/26 14:07:55",
+ "timestampMillis": "2886982072",
+ "status": {
+  "cmdId": "5b82e54b-d4cf-48ff-8072-ba2cdff3efe5",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988766",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "blur_edge",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp",
+     "C:/Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988768",
+ "buildStep": {
+  "cmdId": "f87b1fd8-d8e8-4e70-a374-aaf5b346ab28",
+  "name": "csynth_design",
+  "logFile": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls\\hls.log",
+  "commandLine": "csynth_design",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988769",
+ "status": {
+  "cmdId": "f87b1fd8-d8e8-4e70-a374-aaf5b346ab28",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988769",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls\\hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988770",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls\\syn\\report\\csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:02",
+ "timestampMillis": "2886988771",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls\\syn\\report\\csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:26",
+ "timestampMillis": "2887013687",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:26",
+ "timestampMillis": "2887013688",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:26",
+ "timestampMillis": "2887013689",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "04/20/26 14:08:26",
+ "timestampMillis": "2887013690",
+ "status": {
+  "cmdId": "f87b1fd8-d8e8-4e70-a374-aaf5b346ab28",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "04/20/26 14:08:27",
+ "timestampMillis": "2887013876",
+ "status": {
+  "cmdId": "5b82e54b-d4cf-48ff-8072-ba2cdff3efe5",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:27",
+ "timestampMillis": "2887013951",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\reports\\v++_compile_parallelism_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "04/20/26 14:08:27",
+ "timestampMillis": "2887013952",
+ "report": {
+  "path": "C:/Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism\\parallelism\\reports\\.db\\v++_compile_parallelism_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -1,0 +1,7 @@
+{
+  "workspaceRoot": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls",
+  "mapping": {
+    "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp": "parallelism",
+    "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined_tb.cpp": "parallelism"
+  }
+}

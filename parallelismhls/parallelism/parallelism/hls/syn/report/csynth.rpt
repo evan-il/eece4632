@@ -1,0 +1,243 @@
+
+
+================================================================
+== Synthesis Summary Report of 'blur_edge'
+================================================================
++ General Information: 
+    * Date:           Mon Apr 20 14:08:24 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        parallelism
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu3eg-sfvc784-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+--------+--------+------------+-------------+-----+
+    |                 Modules                 | Issue|      | Latency |  Latency  | Iteration|         |  Trip  |          |        |        |            |             |     |
+    |                 & Loops                 | Type | Slack| (cycles)|    (ns)   |  Latency | Interval|  Count | Pipelined|  BRAM  |   DSP  |     FF     |     LUT     | URAM|
+    +-----------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+--------+--------+------------+-------------+-----+
+    |+ blur_edge                              |     -|  0.37|   307241|  3.072e+06|         -|   307242|       -|        no|  5 (1%)|  4 (1%)|  12448 (8%)|  11167 (15%)|    -|
+    | + blur_edge_Pipeline_row_loop_col_loop  |     -|  0.37|   307238|  3.072e+06|         -|   307238|       -|        no|  5 (1%)|       -|  12149 (8%)|  10878 (15%)|    -|
+    |  o row_loop_col_loop                    |     -|  7.30|   307236|  3.072e+06|        38|        1|  307200|       yes|       -|       -|           -|            -|    -|
+    +-----------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+--------+--------+------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | height    | 0x10   | 32    | W      | Data signal of height            |                                                                      |
+| s_axi_control | width     | 0x18   | 32    | W      | Data signal of width             |                                                                      |
+| s_axi_control | threshold | 0x20   | 32    | W      | Data signal of threshold         |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AXIS
++-----------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| Interface | Direction | Register Mode | TDATA | TDEST | TID | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++-----------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+| dst       | out       | both          | 8     | 1     | 1   | 1     | 1     | 1      | 1     | 1     | 1      |
+| src       | in        | both          | 8     | 1     | 1   | 1     | 1     | 1      | 1     | 1     | 1      |
++-----------+-----------+---------------+-------+-------+-----+-------+-------+--------+-------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+--------------------------------------------------------+
+| Argument  | Direction | Datatype                                               |
++-----------+-----------+--------------------------------------------------------+
+| src       | in        | stream<hls::axis<ap_uint<8>, 1, 1, 1, '8', false>, 0>& |
+| dst       | out       | stream<hls::axis<ap_uint<8>, 1, 1, 1, '8', false>, 0>& |
+| height    | in        | int                                                    |
+| width     | in        | int                                                    |
+| threshold | in        | int                                                    |
++-----------+-----------+--------------------------------------------------------+
+
+* SW-to-HW Mapping
++-----------+---------------+-----------+-------------------------------------+
+| Argument  | HW Interface  | HW Type   | HW Info                             |
++-----------+---------------+-----------+-------------------------------------+
+| src       | src           | interface |                                     |
+| dst       | dst           | interface |                                     |
+| height    | s_axi_control | register  | name=height offset=0x10 range=32    |
+| width     | s_axi_control | register  | name=width offset=0x18 range=32     |
+| threshold | s_axi_control | register  | name=threshold offset=0x20 range=32 |
++-----------+---------------+-----------+-------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------+-----+--------+---------------+-----------+----------+---------+
+| Name                                    | DSP | Pragma | Variable      | Op        | Impl     | Latency |
++-----------------------------------------+-----+--------+---------------+-----------+----------+---------+
+| + blur_edge                             | 4   |        |               |           |          |         |
+|   mul_32ns_32ns_64_1_1_U46              | 4   |        | mul_ln14      | mul       | auto     | 0       |
+|  + blur_edge_Pipeline_row_loop_col_loop | 0   |        |               |           |          |         |
+|    icmp_ln34_fu_439_p2                  |     |        | icmp_ln34     | seteq     | auto     | 0       |
+|    icmp_ln36_fu_454_p2                  |     |        | icmp_ln36     | setlt     | auto     | 0       |
+|    add_ln34_fu_459_p2                   |     |        | add_ln34      | add       | fabric   | 0       |
+|    select_ln34_fu_465_p3                |     |        | select_ln34   | select    | auto_sel | 0       |
+|    add_ln34_1_fu_473_p2                 |     |        | add_ln34_1    | add       | fabric   | 0       |
+|    select_ln34_1_fu_479_p3              |     |        | select_ln34_1 | select    | auto_sel | 0       |
+|    urem_31ns_4ns_3_35_1_U1              |     |        | empty_28      | urem      | auto     | 34      |
+|    ri_fu_497_p2                         |     |        | ri            | add       | fabric   | 0       |
+|    ri_1_fu_515_p3                       |     |        | ri_1          | select    | auto_sel | 0       |
+|    cmp34_fu_523_p2                      |     |        | cmp34         | seteq     | auto     | 0       |
+|    ri_2_fu_529_p2                       |     |        | ri_2          | add       | fabric   | 0       |
+|    ri_3_fu_547_p3                       |     |        | ri_3          | select    | auto_sel | 0       |
+|    cmp34_1_fu_555_p2                    |     |        | cmp34_1       | seteq     | auto     | 0       |
+|    urem_31ns_4ns_3_35_1_U2              |     |        | empty_32      | urem      | auto     | 34      |
+|    ri_4_fu_567_p2                       |     |        | ri_4          | add       | fabric   | 0       |
+|    ri_5_fu_585_p3                       |     |        | ri_5          | select    | auto_sel | 0       |
+|    cmp34_2_fu_593_p2                    |     |        | cmp34_2       | seteq     | auto     | 0       |
+|    urem_31ns_4ns_3_35_1_U3              |     |        | empty_35      | urem      | auto     | 34      |
+|    ri_6_fu_605_p2                       |     |        | ri_6          | add       | fabric   | 0       |
+|    ri_7_fu_623_p3                       |     |        | ri_7          | select    | auto_sel | 0       |
+|    cmp34_3_fu_631_p2                    |     |        | cmp34_3       | seteq     | auto     | 0       |
+|    urem_31ns_4ns_3_35_1_U4              |     |        | empty_38      | urem      | auto     | 34      |
+|    urem_31ns_4ns_3_35_1_U5              |     |        | empty_40      | urem      | auto     | 34      |
+|    sparsemux_11_3_8_1_1_U6              |     |        | tmp_1         | sparsemux | auto     | 0       |
+|    window_40_fu_850_p3                  |     |        | window_40     | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U7              |     |        | tmp_2         | sparsemux | auto     | 0       |
+|    window_41_fu_883_p3                  |     |        | window_41     | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U8              |     |        | tmp_3         | sparsemux | auto     | 0       |
+|    window_42_fu_916_p3                  |     |        | window_42     | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U9              |     |        | tmp_4         | sparsemux | auto     | 0       |
+|    pix_27_fu_949_p3                     |     |        | pix_27        | select    | auto_sel | 0       |
+|    icmp_ln65_fu_739_p2                  |     |        | icmp_ln65     | seteq     | auto     | 0       |
+|    sub_ln65_fu_955_p2                   |     |        | sub_ln65      | sub       | fabric   | 0       |
+|    kc_start_fu_960_p3                   |     |        | kc_start      | select    | auto_sel | 0       |
+|    icmp_ln73_fu_977_p2                  |     |        | icmp_ln73     | setne     | auto     | 0       |
+|    kc_c_1_fu_983_p3                     |     |        | kc_c_1        | select    | auto_sel | 0       |
+|    icmp_ln73_1_fu_991_p2                |     |        | icmp_ln73_1   | setgt     | auto     | 0       |
+|    kc_c_2_fu_997_p3                     |     |        | kc_c_2        | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U10             |     |        | pix           | sparsemux | auto     | 0       |
+|    sparsemux_9_3_8_1_1_U11              |     |        | pix_1         | sparsemux | auto     | 0       |
+|    sparsemux_7_3_8_1_1_U12              |     |        | pix_2         | sparsemux | auto     | 0       |
+|    icmp_ln74_fu_1085_p2                 |     |        | icmp_ln74     | seteq     | auto     | 0       |
+|    pix_23_fu_1091_p3                    |     |        | pix_23        | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U13             |     |        | pix_5         | sparsemux | auto     | 0       |
+|    sparsemux_9_3_8_1_1_U14              |     |        | pix_6         | sparsemux | auto     | 0       |
+|    sparsemux_7_3_8_1_1_U15              |     |        | pix_7         | sparsemux | auto     | 0       |
+|    pix_24_fu_1191_p3                    |     |        | pix_24        | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U16             |     |        | pix_25        | sparsemux | auto     | 0       |
+|    sparsemux_9_3_8_1_1_U17              |     |        | pix_3         | sparsemux | auto     | 0       |
+|    pix_26_fu_1259_p3                    |     |        | pix_26        | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U18             |     |        | pix_8         | sparsemux | auto     | 0       |
+|    sparsemux_9_3_8_1_1_U19              |     |        | pix_4         | sparsemux | auto     | 0       |
+|    sparsemux_7_3_8_1_1_U20              |     |        | pix_9         | sparsemux | auto     | 0       |
+|    select_ln74_3_fu_1351_p3             |     |        | select_ln74_3 | select    | auto_sel | 0       |
+|    sparsemux_11_3_8_1_1_U21             |     |        | pix_10        | sparsemux | auto     | 0       |
+|    sparsemux_9_3_8_1_1_U22              |     |        | pix_11        | sparsemux | auto     | 0       |
+|    sparsemux_7_3_8_1_1_U23              |     |        | pix_12        | sparsemux | auto     | 0       |
+|    pix_28_fu_1452_p3                    |     |        | pix_28        | select    | auto_sel | 0       |
+|    sub_ln75_2_fu_1459_p2                |     |        | sub_ln75_2    | sub       | fabric   | 0       |
+|    empty_20_fu_1481_p2                  |     |        | empty_20      | sub       | fabric   | 0       |
+|    empty_22_fu_1531_p2                  |     |        | empty_22      | sub       | fabric   | 0       |
+|    tmp12_fu_1573_p2                     |     |        | tmp12         | sub       | fabric   | 0       |
+|    tmp15_fu_1605_p2                     |     |        | tmp15         | sub       | fabric   | 0       |
+|    tmp16_fu_1635_p2                     |     |        | tmp16         | sub       | fabric   | 0       |
+|    tmp189_fu_1653_p2                    |     |        | tmp189        | sub       | fabric   | 0       |
+|    sub_ln75_fu_1671_p2                  |     |        | sub_ln75      | sub       | fabric   | 0       |
+|    empty_24_fu_1681_p2                  |     |        | empty_24      | add       | fabric   | 0       |
+|    empty_26_fu_1715_p2                  |     |        | empty_26      | add       | fabric   | 0       |
+|    tmp333_fu_1749_p2                    |     |        | tmp333        | sub       | fabric   | 0       |
+|    tmp36_fu_1767_p2                     |     |        | tmp36         | sub       | fabric   | 0       |
+|    tmp37_fu_1797_p2                     |     |        | tmp37         | sub       | fabric   | 0       |
+|    tmp39_fu_1803_p2                     |     |        | tmp39         | sub       | fabric   | 0       |
+|    add_ln75_1_fu_1855_p2                |     |        | add_ln75_1    | add       | fabric   | 0       |
+|    add_ln75_2_fu_1865_p2                |     |        | add_ln75_2    | add       | fabric   | 0       |
+|    add_ln75_5_fu_1893_p2                |     |        | add_ln75_5    | add       | fabric   | 0       |
+|    add_ln76_fu_1909_p2                  |     |        | add_ln76      | add       | fabric   | 0       |
+|    sub_ln76_fu_1919_p2                  |     |        | sub_ln76      | sub       | fabric   | 0       |
+|    add_ln76_5_fu_1961_p2                |     |        | add_ln76_5    | add       | fabric   | 0       |
+|    Gy_fu_1981_p2                        |     |        | Gy            | add       | fabric   | 0       |
+|    sub_ln82_fu_2100_p2                  |     |        | sub_ln82      | sub       | fabric   | 0       |
+|    select_ln82_fu_2105_p3               |     |        | select_ln82   | select    | auto_sel | 0       |
+|    sub_ln83_fu_2124_p2                  |     |        | sub_ln83      | sub       | fabric   | 0       |
+|    select_ln83_fu_2129_p3               |     |        | select_ln83   | select    | auto_sel | 0       |
+|    mag_fu_2140_p2                       |     |        | mag           | add       | fabric   | 0       |
+|    icmp_ln90_fu_2146_p2                 |     |        | icmp_ln90     | setlt     | auto     | 0       |
+|    xor_ln90_fu_2151_p2                  |     |        | xor_ln90      | xor       | auto     | 0       |
+|    icmp11_fu_675_p2                     |     |        | icmp11        | setne     | auto     | 0       |
+|    icmp14_fu_757_p2                     |     |        | icmp14        | setne     | auto     | 0       |
+|    not_or_ln87_fu_2157_p2               |     |        | not_or_ln87   | and       | auto     | 0       |
+|    result_fu_2161_p2                    |     |        | result        | and       | auto     | 0       |
+|    dst_TDATA                            |     |        | select_ln86   | select    | auto_sel | 0       |
+|    add_ln36_fu_681_p2                   |     |        | add_ln36      | add       | fabric   | 0       |
++-----------------------------------------+-----+--------+---------------+-----------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++------------------------------------------------------------+-----------+-----------+------+------+--------+-------------------------------------------------------+------+---------+------------------+
+| Name                                                       | Usage     | Type      | BRAM | URAM | Pragma | Variable                                              | Impl | Latency | Bitwidth, Depth, |
+|                                                            |           |           |      |      |        |                                                       |      |         | Banks            |
++------------------------------------------------------------+-----------+-----------+------+------+--------+-------------------------------------------------------+------+---------+------------------+
+| + blur_edge                                                |           |           | 5    | 0    |        |                                                       |      |         |                  |
+|   control_s_axi_U                                          | interface | s_axilite |      |      |        |                                                       |      |         |                  |
+|  + blur_edge_Pipeline_row_loop_col_loop                    |           |           | 5    | 0    |        |                                                       |      |         |                  |
+|    blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_U | ram_s2p   |           | 1    |      |        | blur_edge_stream_stream_axis_0_int_int_int_line_buf_4 | auto | 1       | 8, 640, 1        |
+|    blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_U | ram_s2p   |           | 1    |      |        | blur_edge_stream_stream_axis_0_int_int_int_line_buf_3 | auto | 1       | 8, 640, 1        |
+|    blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_U | ram_s2p   |           | 1    |      |        | blur_edge_stream_stream_axis_0_int_int_int_line_buf_2 | auto | 1       | 8, 640, 1        |
+|    blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_U | ram_s2p   |           | 1    |      |        | blur_edge_stream_stream_axis_0_int_int_int_line_buf_1 | auto | 1       | 8, 640, 1        |
+|    blur_edge_stream_stream_axis_0_int_int_int_line_buf_U   | ram_s2p   |           | 1    |      |        | blur_edge_stream_stream_axis_0_int_int_int_line_buf   | auto | 1       | 8, 640, 1        |
++------------------------------------------------------------+-----------+-----------+------+------+--------+-------------------------------------------------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+----------------------------------+------------------------------------------------------------------+
+| Type            | Options                          | Location                                                         |
++-----------------+----------------------------------+------------------------------------------------------------------+
+| interface       | axis port=src                    | ../../eece4632/blur_edge_combined.cpp:21 in blur_edge, src       |
+| interface       | axis port=dst                    | ../../eece4632/blur_edge_combined.cpp:22 in blur_edge, dst       |
+| interface       | s_axilite port=height            | ../../eece4632/blur_edge_combined.cpp:23 in blur_edge, height    |
+| interface       | s_axilite port=width             | ../../eece4632/blur_edge_combined.cpp:24 in blur_edge, width     |
+| interface       | s_axilite port=threshold         | ../../eece4632/blur_edge_combined.cpp:25 in blur_edge, threshold |
+| interface       | s_axilite port=return            | ../../eece4632/blur_edge_combined.cpp:26 in blur_edge, return    |
+| array_partition | variable=line_buf complete dim=1 | ../../eece4632/blur_edge_combined.cpp:29 in blur_edge, line_buf  |
+| array_partition | variable=window complete dim=0   | ../../eece4632/blur_edge_combined.cpp:32 in blur_edge, window    |
+| loop_tripcount  | min=1 max=480                    | ../../eece4632/blur_edge_combined.cpp:35 in blur_edge            |
+| loop_tripcount  | min=1 max=640                    | ../../eece4632/blur_edge_combined.cpp:37 in blur_edge            |
+| pipeline        | II=1                             | ../../eece4632/blur_edge_combined.cpp:38 in blur_edge            |
+| unroll          |                                  | ../../eece4632/blur_edge_combined.cpp:49 in blur_edge            |
+| unroll          |                                  | ../../eece4632/blur_edge_combined.cpp:51 in blur_edge            |
+| unroll          |                                  | ../../eece4632/blur_edge_combined.cpp:58 in blur_edge            |
+| unroll          |                                  | ../../eece4632/blur_edge_combined.cpp:70 in blur_edge            |
+| unroll          |                                  | ../../eece4632/blur_edge_combined.cpp:72 in blur_edge            |
++-----------------+----------------------------------+------------------------------------------------------------------+
+
+

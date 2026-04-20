@@ -1,0 +1,168 @@
+
+
+================================================================
+== Vitis HLS Report for 'blur_edge'
+================================================================
+* Date:           Mon Apr 20 14:08:22 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        parallelism
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sfvc784-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.935 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   | min |   max  |   Type  |
+    +---------+---------+----------+----------+-----+--------+---------+
+    |       42|   307241|  0.420 us|  3.072 ms|   43|  307242|       no|
+    +---------+---------+----------+----------+-----+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.00>
+ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%threshold_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %threshold" [../../eece4632/blur_edge_combined.cpp:15]   --->   Operation 5 'read' 'threshold_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 120 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 6 [1/1] (1.00ns)   --->   "%width_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %width" [../../eece4632/blur_edge_combined.cpp:15]   --->   Operation 6 'read' 'width_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 120 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 7 [1/1] (1.00ns)   --->   "%height_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %height" [../../eece4632/blur_edge_combined.cpp:15]   --->   Operation 7 'read' 'height_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 120 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%empty = trunc i32 %threshold_read" [../../eece4632/blur_edge_combined.cpp:15]   --->   Operation 8 'trunc' 'empty' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.49>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln14 = zext i32 %height_read" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 9 'zext' 'zext_ln14' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%zext_ln14_1 = zext i32 %width_read" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 10 'zext' 'zext_ln14_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (3.42ns)   --->   "%mul_ln14 = mul i64 %zext_ln14, i64 %zext_ln14_1" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 11 'mul' 'mul_ln14' <Predicate = true> <Delay = 3.42> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.42> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%empty_44 = wait i32 @_ssdm_op_Wait"   --->   Operation 12 'wait' 'empty_44' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [2/2] (0.07ns)   --->   "%call_ln14 = call void @blur_edge_Pipeline_row_loop_col_loop, i64 %mul_ln14, i16 %empty, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, i32 %width_read, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 13 'call' 'call_ln14' <Predicate = true> <Delay = 0.07> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 3.26>
+ST_3 : Operation 14 [1/2] (3.26ns)   --->   "%call_ln14 = call void @blur_edge_Pipeline_row_loop_col_loop, i64 %mul_ln14, i16 %empty, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, i32 %width_read, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 14 'call' 'call_ln14' <Predicate = true> <Delay = 3.26> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%spectopmodule_ln14 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_10" [../../eece4632/blur_edge_combined.cpp:14]   --->   Operation 15 'spectopmodule' 'spectopmodule_ln14' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %src_V_data_V"   --->   Operation 17 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_keep_V"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_strb_V"   --->   Operation 19 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_user_V"   --->   Operation 20 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_last_V"   --->   Operation 21 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_id_V"   --->   Operation 22 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %src_V_dest_V"   --->   Operation 23 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i8 %dst_V_data_V"   --->   Operation 25 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_keep_V"   --->   Operation 26 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_strb_V"   --->   Operation 27 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_user_V"   --->   Operation 28 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_last_V"   --->   Operation 29 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_id_V"   --->   Operation 30 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dst_V_dest_V"   --->   Operation 31 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %height"   --->   Operation 32 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %height, void @empty_2, i32 4294967295, i32 4294967295, void @empty_0, i32 0, i32 0, void @empty_3, void @empty_4, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 33 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %height, void @empty_5, i32 4294967295, i32 4294967295, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %width"   --->   Operation 35 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %width, void @empty_2, i32 4294967295, i32 4294967295, void @empty_0, i32 0, i32 0, void @empty_3, void @empty_6, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %width, void @empty_5, i32 4294967295, i32 4294967295, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %threshold"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %threshold, void @empty_2, i32 4294967295, i32 4294967295, void @empty_0, i32 0, i32 0, void @empty_3, void @empty_7, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %threshold, void @empty_5, i32 4294967295, i32 4294967295, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_3, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 41 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln34 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, void @empty_8" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 42 'specaxissidechannel' 'specaxissidechannel_ln34' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln34 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V, void @empty_9" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 43 'specaxissidechannel' 'specaxissidechannel_ln34' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%ret_ln102 = ret" [../../eece4632/blur_edge_combined.cpp:102]   --->   Operation 44 'ret' 'ret_ln102' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.000ns
+The critical path consists of the following:
+	s_axi read operation ('threshold_read', ../../eece4632/blur_edge_combined.cpp:15) on port 'threshold' (../../eece4632/blur_edge_combined.cpp:15) [50]  (1.000 ns)
+
+ <State 2>: 3.499ns
+The critical path consists of the following:
+	'mul' operation 64 bit ('mul_ln14', ../../eece4632/blur_edge_combined.cpp:14) [58]  (3.420 ns)
+	'call' operation 0 bit ('call_ln14', ../../eece4632/blur_edge_combined.cpp:14) to 'blur_edge_Pipeline_row_loop_col_loop' [60]  (0.079 ns)
+
+ <State 3>: 3.264ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln14', ../../eece4632/blur_edge_combined.cpp:14) to 'blur_edge_Pipeline_row_loop_col_loop' [60]  (3.264 ns)
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

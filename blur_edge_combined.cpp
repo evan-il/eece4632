@@ -1,27 +1,22 @@
 #include "blur_edge_combined.h"
 
-// using ap_uint<4> for optimization
-// also experimenting with putting entire matrix in memory to avoid calculation
-static const ap_uint<5> KERNEL[KERNEL_SIZE][KERNEL_SIZE] = {{1,  4,  7,  4, 1},
-                                                            {4, 16, 26, 16, 4},
-                                                            {7, 26, 41, 26, 7},
-                                                            {4, 16, 26, 16, 4},
-                                                            {1,  4,  6,  4, 1}};
+// Gaussian-smoothed 5x5 Sobel kernel (separable: [1,4,6,4,1]^T x [-1,-2,0,2,1]).
+// Applying this to raw pixels is mathematically equivalent to Gaussian blur then Sobel
+// combined into a single pass. SOBEL[kr][kc] = Gx; SOBEL[kc][kr] = Gy (transpose).
+static const int SOBEL[KERNEL_SIZE][KERNEL_SIZE] = {
+    {-1,  -2, 0,  2, 1},
+    {-4,  -8, 0,  8, 4},
+    {-6, -12, 0, 12, 6},
+    {-4,  -8, 0,  8, 4},
+    {-1,  -2, 0,  2, 1}
+};
 
-// gx accessed with SOBEL[row][col] gy with SOBEL[col][row] - transpose matrix
-static const ap_int<5> SOBEL[KERNEL_SIZE][KERNEL_SIZE]={{-1,  -2, 0,  2, 1},
-                                                        {-4,  -8, 0,  8, 4},
-                                                        {-6, -12, 0, 12, 6},
-                                                        {-4,  -8, 0,  8, 4},
-                                                        {-1,  -2, 0,  2, 1}};
-                                                        
-
-void blur_edge (
+void blur_edge(
     hls::stream<axis_t> &src,
     hls::stream<axis_t> &dst,
     int height,
     int width,
-    pixel_t threshold
+    int threshold
 ) {
     #pragma HLS INTERFACE axis      port=src
     #pragma HLS INTERFACE axis      port=dst
@@ -30,10 +25,9 @@ void blur_edge (
     #pragma HLS INTERFACE s_axilite port=threshold
     #pragma HLS INTERFACE s_axilite port=return
 
-    // changing to 5x5 kernel for edge detection - blurrier edges compared to 3x3
-    // but this application doesnt require sensitive edge detection
     static pixel_t line_buf[KERNEL_SIZE][IMG_WIDTH];
     #pragma HLS ARRAY_PARTITION variable=line_buf complete dim=1
+
     pixel_t window[KERNEL_SIZE][KERNEL_SIZE];
     #pragma HLS ARRAY_PARTITION variable=window complete dim=0
 
@@ -43,14 +37,14 @@ void blur_edge (
             #pragma HLS LOOP_TRIPCOUNT min=1 max=IMG_WIDTH
             #pragma HLS PIPELINE II=1
 
-            // ---- 1. Read one pixel from the input stream ----
+            // 1. Read pixel from input stream
             axis_t pix_in = src.read();
             pixel_t px = pix_in.data;
 
-            // ---- 2. Store in circular line buffer ----
+            // 2. Store in circular line buffer
             line_buf[r % KERNEL_SIZE][c] = px;
 
-            // ---- 3. Shift window right (discard oldest column) ----
+            // 3. Shift window columns left
             for (int kr = 0; kr < KERNEL_SIZE; kr++) {
                 #pragma HLS UNROLL
                 for (int kc = 0; kc < KERNEL_SIZE - 1; kc++) {
@@ -59,11 +53,7 @@ void blur_edge (
                 }
             }
 
-            // ---- 4. Load new rightmost window column from line buffer ----
-            // window[kr][KERNEL_SIZE-1] gets row index (r - KERNEL_SIZE+1 + kr).
-            // When kr == KERNEL_SIZE-1 the index equals r (current row); use
-            // the freshly read pixel directly to avoid a same-cycle RAW on
-            // line_buf.  Clamp negative indices to row 0 (top border).
+            // 4. Load new rightmost column; use px directly for current row to avoid RAW
             for (int kr = 0; kr < KERNEL_SIZE; kr++) {
                 #pragma HLS UNROLL
                 int ri = r - KERNEL_SIZE + 1 + kr;
@@ -71,48 +61,38 @@ void blur_edge (
                 window[kr][KERNEL_SIZE - 1] = (ri == r) ? px : line_buf[ri % KERNEL_SIZE][c];
             }
 
-            // ---- 5. Left-border clamping ----
-            // For c < KERNEL_SIZE-1, window slots 0..(kc_start-1) were filled
-            // with data from the end of the previous row (wrap-around garbage).
-            // Redirect those positions to slot kc_start, which holds the first
-            // real pixel of the current row (column 0 = left border replicate).
+            // 5. Left-border clamping: redirect invalid columns to the first real column
             int kc_start = (c < KERNEL_SIZE - 1) ? (KERNEL_SIZE - 1 - c) : 0;
 
-            // ---- 6. 2D separable Gaussian convolution ----
-            accum_t sum = 0;
+            // 6. Compute Gx and Gy using the fused Gaussian-Sobel kernel
+            accum_t Gx = 0, Gy = 0;
             for (int kr = 0; kr < KERNEL_SIZE; kr++) {
                 #pragma HLS UNROLL
-                accum_t row_acc = 0;
                 for (int kc = 0; kc < KERNEL_SIZE; kc++) {
                     #pragma HLS UNROLL
                     int kc_c = (kc < kc_start) ? kc_start : kc;
-                    row_acc += (accum_t)window[kr][kc_c] * KERNEL[kc];
-                }
-                sum += row_acc * KERNEL[kr];
-            }
-
-            // calculate sobel gradients 5x5 kernel
-            accum_t Gx = 0
-            accum_t Gy = 0
-            for(int r = 0; r < KERNEL_SIZE; r++) {
-                #pragma HLS UNROLL
-                for(int c = 0; c < KERNEL_SIZE; c++) {
-                    #pragma HLS UNROLL
-                    win_n = * win[r][c]
-                    Gx += (accum_t)SOBEL[r][c] * win_n
-                    Gy += (accum_t)SOBEL[c][r] * win_n
+                    pixel_t pix = window[kr][kc_c];
+                    Gx += (accum_t)SOBEL[kr][kc] * (accum_t)pix;
+                    Gy += (accum_t)SOBEL[kc][kr] * (accum_t)pix;
                 }
             }
 
-            // ---- 5. L1 magnitude approximation (no sqrt needed) ----
-            // Cast resolves ap_int width ambiguity: negation promotes ap_int<16> to ap_int<17>
-            accum_t mag = (accum_t)(Gx < 0 ? (ap_int<17>)(-Gx) : (ap_int<17>)(Gx)) + ((Gy < 0) ? (ap_int<17>)(-Gy) : (ap_int<17>)(Gy));
+            // 7. L1 magnitude — cast both ternary branches to ap_int<17> explicitly so HLS
+            //    sees matching types (-Gx promotes ap_int<16> to ap_int<17>; Gx does not)
+            accum_t mag = (accum_t)(Gx < 0 ? (ap_int<17>)(-Gx) : (ap_int<17>)(Gx))
+                        + (accum_t)(Gy < 0 ? (ap_int<17>)(-Gy) : (ap_int<17>)(Gy));
 
+            // 8. Suppress border pixels, apply threshold
+            pixel_t result;
+            if (r < KERNEL_HALF || c < KERNEL_HALF) {
+                result = 0;
+            } else {
+                result = (mag >= (accum_t)threshold) ? (pixel_t)255 : (pixel_t)0;
+            }
 
-            // ---- 7. Scale and write output pixel ----
-            // Total kernel weight = 16 * 16 = 256, so shift right by 8.
+            // 9. Write output pixel
             axis_t pix_out;
-            pix_out.data = (pixel_t)(sum >> 8);
+            pix_out.data = result;
             pix_out.keep = pix_in.keep;
             pix_out.strb = pix_in.strb;
             pix_out.last = pix_in.last;

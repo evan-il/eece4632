@@ -1,0 +1,120 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:148:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:153:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:218:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="keep_all" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:330:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:338:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:347:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:358:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:370:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:381:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="C:/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot\ap_axi_sdata.h:398:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="directive:1:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=blur_edge" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=src" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=dst" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=height" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=width" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:25:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=threshold" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:29:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=line_buf complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:32:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=window complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:35:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=480" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:37:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=640" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:38:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:49:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:51:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:70:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="../../eece4632/blur_edge_combined.cpp:72:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="blur_edge" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:48:30" msg_body="Loop 'VITIS_LOOP_48_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_48_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:50:19" msg_body="Loop 'VITIS_LOOP_50_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_50_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:57:30" msg_body="Loop 'VITIS_LOOP_57_3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_57_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:69:30" msg_body="Loop 'VITIS_LOOP_69_4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_69_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:71:19" msg_body="Loop 'VITIS_LOOP_71_5' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_71_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:20:0" msg_body="Unrolling loop 'VITIS_LOOP_48_1' (../../eece4632/blur_edge_combined.cpp:48:30) in function 'blur_edge' completely with a factor of 5">
+        <args Factor="5" LoopLoc="../../eece4632/blur_edge_combined.cpp:48:30" LoopName="VITIS_LOOP_48_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:20:0" msg_body="Unrolling loop 'VITIS_LOOP_50_2' (../../eece4632/blur_edge_combined.cpp:50:19) in function 'blur_edge' completely with a factor of 4">
+        <args Factor="4" LoopLoc="../../eece4632/blur_edge_combined.cpp:50:19" LoopName="VITIS_LOOP_50_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:20:0" msg_body="Unrolling loop 'VITIS_LOOP_57_3' (../../eece4632/blur_edge_combined.cpp:57:30) in function 'blur_edge' completely with a factor of 5">
+        <args Factor="5" LoopLoc="../../eece4632/blur_edge_combined.cpp:57:30" LoopName="VITIS_LOOP_57_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:20:0" msg_body="Unrolling loop 'VITIS_LOOP_69_4' (../../eece4632/blur_edge_combined.cpp:69:30) in function 'blur_edge' completely with a factor of 5">
+        <args Factor="5" LoopLoc="../../eece4632/blur_edge_combined.cpp:69:30" LoopName="VITIS_LOOP_69_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:20:0" msg_body="Unrolling loop 'VITIS_LOOP_71_5' (../../eece4632/blur_edge_combined.cpp:71:19) in function 'blur_edge' completely with a factor of 5">
+        <args Factor="5" LoopLoc="../../eece4632/blur_edge_combined.cpp:71:19" LoopName="VITIS_LOOP_71_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:28:0" msg_body="Applying array_partition to '_ZZ9blur_edgeRN3hls6streamINS_4axisI7ap_uintILi8EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_iiiE8line_buf': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ9blur_edgeRN3hls6streamINS_4axisI7ap_uintILi8EELm1ELm1ELm1ELh56ELb0EEELi0EEES6_iiiE8line_buf"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="../../eece4632/blur_edge_combined.cpp:31:10" msg_body="Applying array_partition to 'window': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
+        <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="window"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

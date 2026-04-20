@@ -1,0 +1,50 @@
+04/20/26 14:01:38: Running xcd server. This server was NOT built by gradle, but presumably rdi.
+04/20/26 14:01:38: Server was asked to start on port: '55515'
+04/20/26 14:01:38: Server is using token UUID: 'c4170102-fce5-45cc-a05e-a901083491fb'
+04/20/26 14:01:38: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+04/20/26 14:01:38: Attempting to start server on port '55515'
+04/20/26 14:01:38: Running Dispatch Server
+04/20/26 14:01:38: Version 2.2.0
+04/20/26 14:01:39: Dispatch Server: Accepted socket connection from client
+04/20/26 14:01:39: Starting Socket connection
+04/20/26 14:01:39: EXCHANGE_TOKEN received, server token: c4170102-fce5-45cc-a05e-a901083491fb, passed token: c4170102-fce5-45cc-a05e-a901083491fb
+04/20/26 14:01:39: DISPATCH_HANDLER: Adding handler from function makeHandler in library librdi_system_diagram failed with exception: Could not dynamically load librdi_system_diagram.dll
+04/20/26 14:01:39: SESSION_MGR: creating session with session uuid: 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' and name 'v++_compile_parallelism'
+04/20/26 14:01:39: KERNEL_SVC: creating session with uuid: 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' and name 'v++_compile_parallelism'
+04/20/26 14:01:39: GUIDANCE_SMGR: creating guidance session with uuid: 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' and name 'v++_compile_parallelism'
+04/20/26 14:01:47: Dispatch Server: Accepted socket connection from client
+04/20/26 14:01:47: Starting Socket connection
+04/20/26 14:01:51: SESSION_MGR: closing session for UUID 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' with name 'v++_compile_parallelism'
+04/20/26 14:01:51: KERNEL_SVC: closing session for UUID 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' with name 'v++_compile_parallelism'
+04/20/26 14:01:51: GUIDANCE_SMGR: closing session for UUID 'fd7d5a81-f656-4e20-a664-b5d4b92a8f7e' with name 'v++_compile_parallelism'
+04/20/26 14:01:51: STOP_SERVER received, server token: c4170102-fce5-45cc-a05e-a901083491fb, passed token: c4170102-fce5-45cc-a05e-a901083491fb
+04/20/26 14:01:51: Socket received request to stop server.
+04/20/26 14:01:51: Dispatch Server: do_await_stop
+04/20/26 14:01:51: SERVER: destructor for server bound to port 55515
+04/20/26 14:01:51: Server exiting with status 0.
+04/20/26 14:01:51: Closing log file.
+04/20/26 14:07:53: Running xcd server. This server was NOT built by gradle, but presumably rdi.
+04/20/26 14:07:53: Server was asked to start on port: '63789'
+04/20/26 14:07:53: Server is using token UUID: 'b2eec391-747b-446d-8332-254e60d37569'
+04/20/26 14:07:53: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+04/20/26 14:07:53: Attempting to start server on port '63789'
+04/20/26 14:07:53: Running Dispatch Server
+04/20/26 14:07:53: Version 2.2.0
+04/20/26 14:07:55: Dispatch Server: Accepted socket connection from client
+04/20/26 14:07:55: Starting Socket connection
+04/20/26 14:07:55: EXCHANGE_TOKEN received, server token: b2eec391-747b-446d-8332-254e60d37569, passed token: b2eec391-747b-446d-8332-254e60d37569
+04/20/26 14:07:55: DISPATCH_HANDLER: Adding handler from function makeHandler in library librdi_system_diagram failed with exception: Could not dynamically load librdi_system_diagram.dll
+04/20/26 14:07:55: SESSION_MGR: creating session with session uuid: '91097687-1bfe-45c3-b8c8-36d5f86e0463' and name 'v++_compile_parallelism'
+04/20/26 14:07:55: KERNEL_SVC: creating session with uuid: '91097687-1bfe-45c3-b8c8-36d5f86e0463' and name 'v++_compile_parallelism'
+04/20/26 14:07:55: GUIDANCE_SMGR: creating guidance session with uuid: '91097687-1bfe-45c3-b8c8-36d5f86e0463' and name 'v++_compile_parallelism'
+04/20/26 14:08:01: Dispatch Server: Accepted socket connection from client
+04/20/26 14:08:01: Starting Socket connection
+04/20/26 14:08:27: SESSION_MGR: closing session for UUID '91097687-1bfe-45c3-b8c8-36d5f86e0463' with name 'v++_compile_parallelism'
+04/20/26 14:08:27: KERNEL_SVC: closing session for UUID '91097687-1bfe-45c3-b8c8-36d5f86e0463' with name 'v++_compile_parallelism'
+04/20/26 14:08:27: GUIDANCE_SMGR: closing session for UUID '91097687-1bfe-45c3-b8c8-36d5f86e0463' with name 'v++_compile_parallelism'
+04/20/26 14:08:27: STOP_SERVER received, server token: b2eec391-747b-446d-8332-254e60d37569, passed token: b2eec391-747b-446d-8332-254e60d37569
+04/20/26 14:08:27: Socket received request to stop server.
+04/20/26 14:08:27: Dispatch Server: do_await_stop
+04/20/26 14:08:27: SERVER: destructor for server bound to port 63789
+04/20/26 14:08:27: Server exiting with status 0.
+04/20/26 14:08:27: Closing log file.

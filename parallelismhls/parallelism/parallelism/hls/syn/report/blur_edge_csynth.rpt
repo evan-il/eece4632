@@ -1,0 +1,173 @@
+
+
+================================================================
+== Vitis HLS Report for 'blur_edge'
+================================================================
+* Date:           Mon Apr 20 14:08:24 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        parallelism
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sfvc784-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.935 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   | min |   max  |   Type  |
+    +---------+---------+----------+----------+-----+--------+---------+
+    |       42|   307241|  0.420 us|  3.072 ms|   43|  307242|       no|
+    +---------+---------+----------+----------+-----+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------------------+--------------------------------------+---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+        |                                                 |                                      |  Latency (cycles) |  Latency (absolute) |   Interval   |                    Pipeline                   |
+        |                     Instance                    |                Module                |   min   |   max   |    min   |    max   | min |   max  |                      Type                     |
+        +-------------------------------------------------+--------------------------------------+---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+        |grp_blur_edge_Pipeline_row_loop_col_loop_fu_106  |blur_edge_Pipeline_row_loop_col_loop  |       39|   307238|  0.390 us|  3.072 ms|    2|  307201|  loop auto-rewind stp(delay=0 clock cycles(s))|
+        +-------------------------------------------------+--------------------------------------+---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|      2|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        5|    4|   12299|  11130|    0|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     35|    -|
+|Register         |        -|    -|     149|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        5|    4|   12448|  11167|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      432|  360|  141120|  70560|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        1|    1|       8|     15|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------------------+--------------------------------------+---------+----+-------+-------+-----+
+    |                     Instance                    |                Module                | BRAM_18K| DSP|   FF  |  LUT  | URAM|
+    +-------------------------------------------------+--------------------------------------+---------+----+-------+-------+-----+
+    |grp_blur_edge_Pipeline_row_loop_col_loop_fu_106  |blur_edge_Pipeline_row_loop_col_loop  |        5|   0|  12149|  10878|    0|
+    |control_s_axi_U                                  |control_s_axi                         |        0|   0|    150|    232|    0|
+    |mul_32ns_32ns_64_1_1_U46                         |mul_32ns_32ns_64_1_1                  |        0|   4|      0|     20|    0|
+    +-------------------------------------------------+--------------------------------------+---------+----+-------+-------+-----+
+    |Total                                            |                                      |        5|   4|  12299|  11130|    0|
+    +-------------------------------------------------+--------------------------------------+---------+----+-------+-------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |                        Variable Name                       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |grp_blur_edge_Pipeline_row_loop_col_loop_fu_106_dst_TREADY  |       and|   0|  0|   2|           1|           1|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                                       |          |   0|  0|   2|           1|           1|
+    +------------------------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                |  26|          5|    1|          5|
+    |src_TREADY_int_regslice  |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  35|          7|    2|          7|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------------------------+----+----+-----+-----------+
+    |                             Name                             | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                     |   4|   0|    4|          0|
+    |empty_reg_179                                                 |  16|   0|   16|          0|
+    |grp_blur_edge_Pipeline_row_loop_col_loop_fu_106_ap_start_reg  |   1|   0|    1|          0|
+    |height_read_reg_174                                           |  32|   0|   32|          0|
+    |mul_ln14_reg_184                                              |  64|   0|   64|          0|
+    |width_read_reg_168                                            |  32|   0|   32|          0|
+    +--------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                         | 149|   0|  149|          0|
+    +--------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+--------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-----------------------+-----+-----+------------+--------------+--------------+
+|s_axi_control_AWVALID  |   in|    1|       s_axi|       control|        scalar|
+|s_axi_control_AWREADY  |  out|    1|       s_axi|       control|        scalar|
+|s_axi_control_AWADDR   |   in|    6|       s_axi|       control|        scalar|
+|s_axi_control_WVALID   |   in|    1|       s_axi|       control|        scalar|
+|s_axi_control_WREADY   |  out|    1|       s_axi|       control|        scalar|
+|s_axi_control_WDATA    |   in|   32|       s_axi|       control|        scalar|
+|s_axi_control_WSTRB    |   in|    4|       s_axi|       control|        scalar|
+|s_axi_control_ARVALID  |   in|    1|       s_axi|       control|        scalar|
+|s_axi_control_ARREADY  |  out|    1|       s_axi|       control|        scalar|
+|s_axi_control_ARADDR   |   in|    6|       s_axi|       control|        scalar|
+|s_axi_control_RVALID   |  out|    1|       s_axi|       control|        scalar|
+|s_axi_control_RREADY   |   in|    1|       s_axi|       control|        scalar|
+|s_axi_control_RDATA    |  out|   32|       s_axi|       control|        scalar|
+|s_axi_control_RRESP    |  out|    2|       s_axi|       control|        scalar|
+|s_axi_control_BVALID   |  out|    1|       s_axi|       control|        scalar|
+|s_axi_control_BREADY   |   in|    1|       s_axi|       control|        scalar|
+|s_axi_control_BRESP    |  out|    2|       s_axi|       control|        scalar|
+|ap_clk                 |   in|    1|  ap_ctrl_hs|     blur_edge|  return value|
+|ap_rst_n               |   in|    1|  ap_ctrl_hs|     blur_edge|  return value|
+|interrupt              |  out|    1|  ap_ctrl_hs|     blur_edge|  return value|
+|src_TDATA              |   in|    8|        axis|  src_V_data_V|       pointer|
+|src_TVALID             |   in|    1|        axis|  src_V_dest_V|       pointer|
+|src_TREADY             |  out|    1|        axis|  src_V_dest_V|       pointer|
+|src_TDEST              |   in|    1|        axis|  src_V_dest_V|       pointer|
+|src_TKEEP              |   in|    1|        axis|  src_V_keep_V|       pointer|
+|src_TSTRB              |   in|    1|        axis|  src_V_strb_V|       pointer|
+|src_TUSER              |   in|    1|        axis|  src_V_user_V|       pointer|
+|src_TLAST              |   in|    1|        axis|  src_V_last_V|       pointer|
+|src_TID                |   in|    1|        axis|    src_V_id_V|       pointer|
+|dst_TDATA              |  out|    8|        axis|  dst_V_data_V|       pointer|
+|dst_TVALID             |  out|    1|        axis|  dst_V_dest_V|       pointer|
+|dst_TREADY             |   in|    1|        axis|  dst_V_dest_V|       pointer|
+|dst_TDEST              |  out|    1|        axis|  dst_V_dest_V|       pointer|
+|dst_TKEEP              |  out|    1|        axis|  dst_V_keep_V|       pointer|
+|dst_TSTRB              |  out|    1|        axis|  dst_V_strb_V|       pointer|
+|dst_TUSER              |  out|    1|        axis|  dst_V_user_V|       pointer|
+|dst_TLAST              |  out|    1|        axis|  dst_V_last_V|       pointer|
+|dst_TID                |  out|    1|        axis|    dst_V_id_V|       pointer|
++-----------------------+-----+-----+------------+--------------+--------------+
+

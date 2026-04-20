@@ -1,0 +1,941 @@
+
+
+================================================================
+== Vitis HLS Report for 'blur_edge_Pipeline_row_loop_col_loop'
+================================================================
+* Date:           Mon Apr 20 14:08:22 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        parallelism
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sfvc784-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.935 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval   |                    Pipeline                   |
+    |   min   |   max   |    min   |    max   | min |   max  |                      Type                     |
+    +---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+    |       39|   307238|  0.390 us|  3.072 ms|    2|  307201|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+--------+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  |    Trip    |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  |    Count   | Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------------+----------+
+        |- row_loop_col_loop  |       37|   307236|        38|          1|          1|  1 ~ 307200|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+------------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 39
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 39
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 39, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.42>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%c = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 41 'alloca' 'c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%window = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 42 'alloca' 'window' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%window_4 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 43 'alloca' 'window_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%window_8 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 44 'alloca' 'window_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%window_12 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 45 'alloca' 'window_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%window_16 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 46 'alloca' 'window_16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%r = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 47 'alloca' 'r' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   --->   Operation 48 'alloca' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%window_1 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 49 'alloca' 'window_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%window_2 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 50 'alloca' 'window_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%window_3 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 51 'alloca' 'window_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%window_5 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 52 'alloca' 'window_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%window_6 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 53 'alloca' 'window_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%window_7 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 54 'alloca' 'window_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%window_9 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 55 'alloca' 'window_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%window_10 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 56 'alloca' 'window_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%window_11 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 57 'alloca' 'window_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%window_13 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 58 'alloca' 'window_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%window_14 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 59 'alloca' 'window_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%window_15 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 60 'alloca' 'window_15' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%window_17 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 61 'alloca' 'window_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%window_18 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 62 'alloca' 'window_18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%window_19 = alloca i32 1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 63 'alloca' 'window_19' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, void @empty_8"   --->   Operation 64 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln0 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V, void @empty_9"   --->   Operation 65 'specaxissidechannel' 'specaxissidechannel_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %dst_V_dest_V, i1 %dst_V_id_V, i1 %dst_V_last_V, i1 %dst_V_user_V, i1 %dst_V_strb_V, i1 %dst_V_keep_V, i8 %dst_V_data_V, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 66 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %src_V_dest_V, i1 %src_V_id_V, i1 %src_V_last_V, i1 %src_V_user_V, i1 %src_V_strb_V, i1 %src_V_keep_V, i8 %src_V_data_V, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0, i32 0"   --->   Operation 67 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%width_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %width"   --->   Operation 68 'read' 'width_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%tmp_10 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %empty"   --->   Operation 69 'read' 'tmp_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%mul_ln14_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %mul_ln14"   --->   Operation 70 'read' 'mul_ln14_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.42ns)   --->   "%store_ln0 = store i64 0, i64 %indvar_flatten"   --->   Operation 71 'store' 'store_ln0' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 72 [1/1] (0.42ns)   --->   "%store_ln34 = store i31 0, i31 %r" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 72 'store' 'store_ln34' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 73 [1/1] (0.42ns)   --->   "%store_ln36 = store i10 0, i10 %c" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 73 'store' 'store_ln36' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%br_ln34 = br void %VITIS_LOOP_48_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 74 'br' 'br_ln34' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 4.31>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%indvar_flatten_load = load i64 %indvar_flatten" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 75 'load' 'indvar_flatten_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (1.08ns)   --->   "%icmp_ln34 = icmp_eq  i64 %indvar_flatten_load, i64 %mul_ln14_read" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 76 'icmp' 'icmp_ln34' <Predicate = true> <Delay = 1.08> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%br_ln34 = br i1 %icmp_ln34, void %for.inc121.loopexit, void %for.end123.loopexit.exitStub" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 77 'br' 'br_ln34' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%c_load = load i10 %c" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 78 'load' 'c_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%r_load = load i31 %r" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 79 'load' 'r_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln36_1 = zext i10 %c_load" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 80 'zext' 'zext_ln36_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (1.01ns)   --->   "%icmp_ln36 = icmp_slt  i32 %zext_ln36_1, i32 %width_read" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 81 'icmp' 'icmp_ln36' <Predicate = (!icmp_ln34)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 82 [1/1] (1.08ns)   --->   "%add_ln34 = add i64 %indvar_flatten_load, i64 1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 82 'add' 'add_ln34' <Predicate = (!icmp_ln34)> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 83 [1/1] (0.40ns)   --->   "%select_ln34 = select i1 %icmp_ln36, i10 %c_load, i10 0" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 83 'select' 'select_ln34' <Predicate = (!icmp_ln34)> <Delay = 0.40> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 84 [1/1] (1.00ns)   --->   "%add_ln34_1 = add i31 %r_load, i31 1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 84 'add' 'add_ln34_1' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.41ns)   --->   "%select_ln34_1 = select i1 %icmp_ln36, i31 %r_load, i31 %add_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 85 'select' 'select_ln34_1' <Predicate = (!icmp_ln34)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln34 = zext i31 %select_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 86 'zext' 'zext_ln34' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 87 [35/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 87 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 88 [1/1] (1.00ns)   --->   "%ri = add i32 %zext_ln34, i32 4294967292" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 88 'add' 'ri' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%empty_30 = trunc i32 %ri" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 89 'trunc' 'empty_30' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%tmp_11 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %ri, i32 31" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 90 'bitselect' 'tmp_11' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (0.41ns)   --->   "%ri_1 = select i1 %tmp_11, i31 0, i31 %empty_30" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 91 'select' 'ri_1' <Predicate = (!icmp_ln34)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 92 [1/1] (1.00ns)   --->   "%cmp34 = icmp_eq  i31 %ri_1, i31 %select_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 92 'icmp' 'cmp34' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 93 [1/1] (1.00ns)   --->   "%ri_2 = add i32 %zext_ln34, i32 4294967293" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 93 'add' 'ri_2' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%empty_31 = trunc i32 %ri_2" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 94 'trunc' 'empty_31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_12 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %ri_2, i32 31" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 95 'bitselect' 'tmp_12' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (0.41ns)   --->   "%ri_3 = select i1 %tmp_12, i31 0, i31 %empty_31" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 96 'select' 'ri_3' <Predicate = (!icmp_ln34)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 97 [1/1] (1.00ns)   --->   "%cmp34_1 = icmp_eq  i31 %ri_3, i31 %select_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 97 'icmp' 'cmp34_1' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 98 [35/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 98 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 99 [1/1] (1.00ns)   --->   "%ri_4 = add i32 %zext_ln34, i32 4294967294" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 99 'add' 'ri_4' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 100 [1/1] (0.00ns)   --->   "%empty_34 = trunc i32 %ri_4" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 100 'trunc' 'empty_34' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%tmp_13 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %ri_4, i32 31" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 101 'bitselect' 'tmp_13' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 102 [1/1] (0.41ns)   --->   "%ri_5 = select i1 %tmp_13, i31 0, i31 %empty_34" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 102 'select' 'ri_5' <Predicate = (!icmp_ln34)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 103 [1/1] (1.00ns)   --->   "%cmp34_2 = icmp_eq  i31 %ri_5, i31 %select_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 103 'icmp' 'cmp34_2' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 104 [35/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 104 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 105 [1/1] (1.00ns)   --->   "%ri_6 = add i32 %zext_ln34, i32 4294967295" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 105 'add' 'ri_6' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%empty_37 = trunc i32 %ri_6" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 106 'trunc' 'empty_37' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%tmp_14 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %ri_6, i32 31" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 107 'bitselect' 'tmp_14' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.41ns)   --->   "%ri_7 = select i1 %tmp_14, i31 0, i31 %empty_37" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 108 'select' 'ri_7' <Predicate = (!icmp_ln34)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 109 [1/1] (1.00ns)   --->   "%cmp34_3 = icmp_eq  i31 %ri_7, i31 %select_ln34_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 109 'icmp' 'cmp34_3' <Predicate = (!icmp_ln34)> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 110 [35/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 110 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 111 [35/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 111 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 112 [1/1] (0.07ns)   --->   "%empty_43 = read i14 @_ssdm_op_Read.axis.volatile.i8P0A.i1P0A.i1P0A.i1P0A.i1P0A.i1P0A.i1P0A, i8 %src_V_data_V, i1 %src_V_keep_V, i1 %src_V_strb_V, i1 %src_V_user_V, i1 %src_V_last_V, i1 %src_V_id_V, i1 %src_V_dest_V" [../../eece4632/blur_edge_combined.cpp:41]   --->   Operation 112 'read' 'empty_43' <Predicate = (!icmp_ln34)> <Delay = 0.07> <CoreInst = "regslice">   --->   Core 148 'regslice' <Latency = 0> <II = 1> <Delay = 0.56> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 113 [1/1] (0.00ns)   --->   "%window_43 = extractvalue i14 %empty_43" [../../eece4632/blur_edge_combined.cpp:41]   --->   Operation 113 'extractvalue' 'window_43' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 114 [1/1] (0.00ns)   --->   "%pix_out_keep = extractvalue i14 %empty_43" [../../eece4632/blur_edge_combined.cpp:41]   --->   Operation 114 'extractvalue' 'pix_out_keep' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 115 [1/1] (0.00ns)   --->   "%pix_out_strb = extractvalue i14 %empty_43" [../../eece4632/blur_edge_combined.cpp:41]   --->   Operation 115 'extractvalue' 'pix_out_strb' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 116 [1/1] (0.00ns)   --->   "%pix_out_last = extractvalue i14 %empty_43" [../../eece4632/blur_edge_combined.cpp:41]   --->   Operation 116 'extractvalue' 'pix_out_last' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_27 = partselect i30 @_ssdm_op_PartSelect.i30.i31.i32.i32, i31 %select_ln34_1, i32 1, i32 30" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 117 'partselect' 'tmp_27' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (0.99ns)   --->   "%icmp11 = icmp_ne  i30 %tmp_27, i30 0" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 118 'icmp' 'icmp11' <Predicate = (!icmp_ln34)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 119 [1/1] (0.78ns)   --->   "%add_ln36 = add i10 %select_ln34, i10 1" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 119 'add' 'add_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 120 [1/1] (0.42ns)   --->   "%store_ln34 = store i64 %add_ln34, i64 %indvar_flatten" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 120 'store' 'store_ln34' <Predicate = (!icmp_ln34)> <Delay = 0.42>
+ST_2 : Operation 121 [1/1] (0.42ns)   --->   "%store_ln34 = store i31 %select_ln34_1, i31 %r" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 121 'store' 'store_ln34' <Predicate = (!icmp_ln34)> <Delay = 0.42>
+ST_2 : Operation 122 [1/1] (0.42ns)   --->   "%store_ln36 = store i10 %add_ln36, i10 %c" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 122 'store' 'store_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.42>
+
+State 3 <SV = 2> <Delay = 1.45>
+ST_3 : Operation 123 [34/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 123 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 124 [34/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 124 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 125 [34/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 125 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 126 [34/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 126 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 127 [34/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 127 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 1.45>
+ST_4 : Operation 128 [33/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 128 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 129 [33/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 129 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 130 [33/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 130 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 131 [33/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 131 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 132 [33/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 132 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 1.45>
+ST_5 : Operation 133 [32/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 133 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 134 [32/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 134 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 135 [32/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 135 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 136 [32/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 136 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 137 [32/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 137 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 1.45>
+ST_6 : Operation 138 [31/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 138 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 139 [31/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 139 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 140 [31/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 140 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 141 [31/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 141 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 142 [31/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 142 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 1.45>
+ST_7 : Operation 143 [30/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 143 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 144 [30/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 144 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 145 [30/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 145 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 146 [30/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 146 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 147 [30/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 147 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 1.45>
+ST_8 : Operation 148 [29/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 148 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 149 [29/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 149 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 150 [29/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 150 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 151 [29/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 151 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 152 [29/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 152 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 1.45>
+ST_9 : Operation 153 [28/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 153 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 154 [28/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 154 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 155 [28/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 155 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 156 [28/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 156 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 157 [28/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 157 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 1.45>
+ST_10 : Operation 158 [27/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 158 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 159 [27/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 159 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 160 [27/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 160 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 161 [27/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 161 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 162 [27/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 162 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 1.45>
+ST_11 : Operation 163 [26/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 163 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 164 [26/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 164 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 165 [26/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 165 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 166 [26/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 166 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 167 [26/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 167 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 1.45>
+ST_12 : Operation 168 [25/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 168 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 169 [25/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 169 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 170 [25/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 170 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 171 [25/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 171 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 172 [25/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 172 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 1.45>
+ST_13 : Operation 173 [24/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 173 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 174 [24/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 174 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 175 [24/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 175 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 176 [24/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 176 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 177 [24/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 177 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 1.45>
+ST_14 : Operation 178 [23/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 178 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 179 [23/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 179 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 180 [23/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 180 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 181 [23/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 181 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 182 [23/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 182 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 1.45>
+ST_15 : Operation 183 [22/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 183 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 184 [22/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 184 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 185 [22/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 185 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 186 [22/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 186 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 187 [22/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 187 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 1.45>
+ST_16 : Operation 188 [21/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 188 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 189 [21/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 189 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 190 [21/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 190 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 191 [21/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 191 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 192 [21/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 192 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 1.45>
+ST_17 : Operation 193 [20/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 193 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 194 [20/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 194 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 195 [20/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 195 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 196 [20/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 196 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 197 [20/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 197 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 1.45>
+ST_18 : Operation 198 [19/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 198 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 199 [19/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 199 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 200 [19/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 200 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 201 [19/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 201 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 202 [19/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 202 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 1.45>
+ST_19 : Operation 203 [18/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 203 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 204 [18/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 204 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 205 [18/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 205 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 206 [18/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 206 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 207 [18/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 207 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 1.45>
+ST_20 : Operation 208 [17/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 208 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 209 [17/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 209 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 210 [17/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 210 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 211 [17/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 211 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 212 [17/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 212 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 1.45>
+ST_21 : Operation 213 [16/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 213 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 214 [16/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 214 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 215 [16/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 215 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 216 [16/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 216 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 217 [16/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 217 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 1.45>
+ST_22 : Operation 218 [15/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 218 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 219 [15/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 219 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 220 [15/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 220 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 221 [15/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 221 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 222 [15/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 222 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 1.45>
+ST_23 : Operation 223 [14/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 223 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 224 [14/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 224 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 225 [14/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 225 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 226 [14/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 226 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 227 [14/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 227 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 1.45>
+ST_24 : Operation 228 [13/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 228 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 229 [13/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 229 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 230 [13/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 230 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 231 [13/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 231 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 232 [13/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 232 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 1.45>
+ST_25 : Operation 233 [12/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 233 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 234 [12/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 234 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 235 [12/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 235 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 236 [12/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 236 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 237 [12/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 237 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 1.45>
+ST_26 : Operation 238 [11/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 238 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 239 [11/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 239 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 240 [11/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 240 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 241 [11/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 241 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 242 [11/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 242 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 1.45>
+ST_27 : Operation 243 [10/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 243 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 244 [10/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 244 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 245 [10/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 245 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 246 [10/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 246 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 247 [10/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 247 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 1.45>
+ST_28 : Operation 248 [9/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 248 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 249 [9/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 249 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 250 [9/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 250 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 251 [9/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 251 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 252 [9/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 252 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 1.45>
+ST_29 : Operation 253 [8/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 253 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 254 [8/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 254 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 255 [8/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 255 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 256 [8/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 256 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 257 [8/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 257 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 1.45>
+ST_30 : Operation 258 [7/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 258 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 259 [7/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 259 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 260 [7/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 260 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 261 [7/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 261 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 262 [7/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 262 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 1.45>
+ST_31 : Operation 263 [6/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 263 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 264 [6/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 264 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 265 [6/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 265 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 266 [6/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 266 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 267 [6/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 267 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 31> <Delay = 1.45>
+ST_32 : Operation 268 [5/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 268 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 269 [5/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 269 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 270 [5/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 270 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 271 [5/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 271 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 272 [5/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 272 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 1.45>
+ST_33 : Operation 273 [4/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 273 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 274 [4/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 274 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 275 [4/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 275 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 276 [4/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 276 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 277 [4/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 277 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 1.45>
+ST_34 : Operation 278 [3/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 278 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 279 [3/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 279 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 280 [3/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 280 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 281 [3/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 281 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 282 [3/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 282 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 1.45>
+ST_35 : Operation 283 [2/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 283 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 284 [2/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 284 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 285 [2/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 285 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 286 [2/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 286 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 287 [2/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 287 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 3.43>
+ST_36 : Operation 288 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @row_loop_col_loop_str"   --->   Operation 288 'specloopname' 'specloopname_ln0' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 289 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1, i64 307200, i64 76800"   --->   Operation 289 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 290 [1/35] (1.45ns)   --->   "%empty_28 = urem i31 %select_ln34_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 290 'urem' 'empty_28' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 291 [1/1] (0.00ns)   --->   "%empty_29 = trunc i3 %empty_28" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 291 'trunc' 'empty_29' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 292 [1/35] (1.45ns)   --->   "%empty_32 = urem i31 %ri_1, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 292 'urem' 'empty_32' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 293 [1/1] (0.00ns)   --->   "%empty_33 = trunc i3 %empty_32" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 293 'trunc' 'empty_33' <Predicate = (!icmp_ln34 & !cmp34)> <Delay = 0.00>
+ST_36 : Operation 294 [1/35] (1.45ns)   --->   "%empty_35 = urem i31 %ri_3, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 294 'urem' 'empty_35' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 295 [1/1] (0.00ns)   --->   "%empty_36 = trunc i3 %empty_35" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 295 'trunc' 'empty_36' <Predicate = (!icmp_ln34 & !cmp34_1)> <Delay = 0.00>
+ST_36 : Operation 296 [1/35] (1.45ns)   --->   "%empty_38 = urem i31 %ri_5, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 296 'urem' 'empty_38' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 297 [1/1] (0.00ns)   --->   "%empty_39 = trunc i3 %empty_38" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 297 'trunc' 'empty_39' <Predicate = (!icmp_ln34 & !cmp34_2)> <Delay = 0.00>
+ST_36 : Operation 298 [1/35] (1.45ns)   --->   "%empty_40 = urem i31 %ri_7, i31 5" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 298 'urem' 'empty_40' <Predicate = (!icmp_ln34)> <Delay = 1.45> <CoreInst = "Divider">   --->   Core 6 'Divider' <Latency = 34> <II = 1> <Delay = 1.45> <FuncUnit> <Opcode : 'udiv' 'sdiv' 'urem' 'srem'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 299 [1/1] (0.00ns)   --->   "%empty_41 = trunc i3 %empty_40" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 299 'trunc' 'empty_41' <Predicate = (!icmp_ln34 & !cmp34_3)> <Delay = 0.00>
+ST_36 : Operation 300 [1/1] (0.00ns)   --->   "%zext_ln36 = zext i10 %select_ln34" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 300 'zext' 'zext_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 301 [1/1] (0.00ns)   --->   "%specpipeline_ln38 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_1" [../../eece4632/blur_edge_combined.cpp:38]   --->   Operation 301 'specpipeline' 'specpipeline_ln38' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 302 [1/1] (0.00ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_addr = getelementptr i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4, i64 0, i64 %zext_ln36" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 302 'getelementptr' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 303 [1/1] (0.00ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_addr = getelementptr i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3, i64 0, i64 %zext_ln36" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 303 'getelementptr' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 304 [1/1] (0.00ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_addr = getelementptr i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2, i64 0, i64 %zext_ln36" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 304 'getelementptr' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 305 [1/1] (0.00ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_addr = getelementptr i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1, i64 0, i64 %zext_ln36" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 305 'getelementptr' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 306 [1/1] (0.00ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_addr = getelementptr i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf, i64 0, i64 %zext_ln36" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 306 'getelementptr' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_addr' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 307 [1/1] (0.73ns)   --->   "%switch_ln45 = switch i3 %empty_29, void %arrayidx61.0.0.0376.case.4, i3 0, void %arrayidx61.0.0.0376.case.0, i3 1, void %arrayidx61.0.0.0376.case.1, i3 2, void %arrayidx61.0.0.0376.case.2, i3 3, void %arrayidx61.0.0.0376.case.3" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 307 'switch' 'switch_ln45' <Predicate = (!icmp_ln34)> <Delay = 0.73>
+ST_36 : Operation 308 [1/1] (1.23ns)   --->   "%store_ln45 = store i8 %window_43, i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_addr" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 308 'store' 'store_ln45' <Predicate = (!icmp_ln34 & empty_29 == 3)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_36 : Operation 309 [1/1] (0.00ns)   --->   "%br_ln45 = br void %arrayidx61.0.0.0376.exit_ifconv" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 309 'br' 'br_ln45' <Predicate = (!icmp_ln34 & empty_29 == 3)> <Delay = 0.00>
+ST_36 : Operation 310 [1/1] (1.23ns)   --->   "%store_ln45 = store i8 %window_43, i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_addr" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 310 'store' 'store_ln45' <Predicate = (!icmp_ln34 & empty_29 == 2)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_36 : Operation 311 [1/1] (0.00ns)   --->   "%br_ln45 = br void %arrayidx61.0.0.0376.exit_ifconv" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 311 'br' 'br_ln45' <Predicate = (!icmp_ln34 & empty_29 == 2)> <Delay = 0.00>
+ST_36 : Operation 312 [1/1] (1.23ns)   --->   "%store_ln45 = store i8 %window_43, i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_addr" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 312 'store' 'store_ln45' <Predicate = (!icmp_ln34 & empty_29 == 1)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_36 : Operation 313 [1/1] (0.00ns)   --->   "%br_ln45 = br void %arrayidx61.0.0.0376.exit_ifconv" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 313 'br' 'br_ln45' <Predicate = (!icmp_ln34 & empty_29 == 1)> <Delay = 0.00>
+ST_36 : Operation 314 [1/1] (1.23ns)   --->   "%store_ln45 = store i8 %window_43, i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_addr" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 314 'store' 'store_ln45' <Predicate = (!icmp_ln34 & empty_29 == 0)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_36 : Operation 315 [1/1] (0.00ns)   --->   "%br_ln45 = br void %arrayidx61.0.0.0376.exit_ifconv" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 315 'br' 'br_ln45' <Predicate = (!icmp_ln34 & empty_29 == 0)> <Delay = 0.00>
+ST_36 : Operation 316 [1/1] (1.23ns)   --->   "%store_ln45 = store i8 %window_43, i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_addr" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 316 'store' 'store_ln45' <Predicate = (!icmp_ln34 & empty_29 != 0 & empty_29 != 1 & empty_29 != 2 & empty_29 != 3)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_36 : Operation 317 [1/1] (0.00ns)   --->   "%br_ln45 = br void %arrayidx61.0.0.0376.exit_ifconv" [../../eece4632/blur_edge_combined.cpp:45]   --->   Operation 317 'br' 'br_ln45' <Predicate = (!icmp_ln34 & empty_29 != 0 & empty_29 != 1 & empty_29 != 2 & empty_29 != 3)> <Delay = 0.00>
+ST_36 : Operation 318 [1/1] (0.00ns)   --->   "%tmp_15 = partselect i8 @_ssdm_op_PartSelect.i8.i10.i32.i32, i10 %select_ln34, i32 2, i32 9" [../../eece4632/blur_edge_combined.cpp:65]   --->   Operation 318 'partselect' 'tmp_15' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 319 [1/1] (0.76ns)   --->   "%icmp_ln65 = icmp_eq  i8 %tmp_15, i8 0" [../../eece4632/blur_edge_combined.cpp:65]   --->   Operation 319 'icmp' 'icmp_ln65' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 320 [1/1] (0.00ns)   --->   "%trunc_ln65 = trunc i10 %select_ln34" [../../eece4632/blur_edge_combined.cpp:65]   --->   Operation 320 'trunc' 'trunc_ln65' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 321 [1/1] (0.00ns)   --->   "%tmp_28 = partselect i9 @_ssdm_op_PartSelect.i9.i10.i32.i32, i10 %select_ln34, i32 1, i32 9" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 321 'partselect' 'tmp_28' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_36 : Operation 322 [1/1] (0.77ns)   --->   "%icmp14 = icmp_ne  i9 %tmp_28, i9 0" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 322 'icmp' 'icmp14' <Predicate = (!icmp_ln34)> <Delay = 0.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 36> <Delay = 1.23>
+ST_37 : Operation 323 [2/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 323 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_37 : Operation 324 [2/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 324 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_37 : Operation 325 [2/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 325 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_37 : Operation 326 [2/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 326 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_37 : Operation 327 [2/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 327 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+
+State 38 <SV = 37> <Delay = 6.93>
+ST_38 : Operation 328 [1/1] (0.00ns)   --->   "%window_20 = load i8 %window_1"   --->   Operation 328 'load' 'window_20' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 329 [1/1] (0.00ns)   --->   "%window_21 = load i8 %window_2"   --->   Operation 329 'load' 'window_21' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 330 [1/1] (0.00ns)   --->   "%window_22 = load i8 %window_3"   --->   Operation 330 'load' 'window_22' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 331 [1/1] (0.00ns)   --->   "%window_23 = load i8 %window_5"   --->   Operation 331 'load' 'window_23' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 332 [1/1] (0.00ns)   --->   "%window_24 = load i8 %window_6"   --->   Operation 332 'load' 'window_24' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 333 [1/1] (0.00ns)   --->   "%window_28 = load i8 %window_7"   --->   Operation 333 'load' 'window_28' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 334 [1/1] (0.00ns)   --->   "%window_29 = load i8 %window_9"   --->   Operation 334 'load' 'window_29' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 335 [1/1] (0.00ns)   --->   "%window_30 = load i8 %window_10"   --->   Operation 335 'load' 'window_30' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 336 [1/1] (0.00ns)   --->   "%window_31 = load i8 %window_11"   --->   Operation 336 'load' 'window_31' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 337 [1/1] (0.00ns)   --->   "%window_32 = load i8 %window_13"   --->   Operation 337 'load' 'window_32' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 338 [1/1] (0.00ns)   --->   "%window_33 = load i8 %window_14"   --->   Operation 338 'load' 'window_33' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 339 [1/1] (0.00ns)   --->   "%window_34 = load i8 %window_15" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 339 'load' 'window_34' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 340 [1/1] (0.00ns)   --->   "%window_35 = load i8 %window_17"   --->   Operation 340 'load' 'window_35' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 341 [1/1] (0.00ns)   --->   "%window_36 = load i8 %window_18"   --->   Operation 341 'load' 'window_36' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 342 [1/1] (0.00ns)   --->   "%window_37 = load i8 %window_19"   --->   Operation 342 'load' 'window_37' <Predicate = true> <Delay = 0.00>
+ST_38 : Operation 343 [1/1] (0.00ns)   --->   "%window_load = load i8 %window" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 343 'load' 'window_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 344 [1/1] (0.00ns)   --->   "%window_4_load = load i8 %window_4" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 344 'load' 'window_4_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 345 [1/1] (0.00ns)   --->   "%window_8_load = load i8 %window_8" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 345 'load' 'window_8_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 346 [1/1] (0.00ns)   --->   "%window_12_load = load i8 %window_12" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 346 'load' 'window_12_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 347 [1/1] (0.00ns)   --->   "%window_16_load = load i8 %window_16" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 347 'load' 'window_16_load' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 348 [1/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 348 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_38 : Operation 349 [1/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 349 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_38 : Operation 350 [1/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 350 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_38 : Operation 351 [1/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 351 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_38 : Operation 352 [1/2] (1.23ns)   --->   "%blur_edge_stream_stream_axis_0_int_int_int_line_buf_load = load i10 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_addr" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 352 'load' 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_load' <Predicate = (!icmp_ln34)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 640> <RAM>
+ST_38 : Operation 353 [1/1] (0.57ns)   --->   "%tmp_1 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load, i3 1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load, i3 2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load, i3 3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load, i3 4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_load, i8 0, i3 %empty_33" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 353 'sparsemux' 'tmp_1' <Predicate = (!icmp_ln34 & !cmp34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 354 [1/1] (0.39ns)   --->   "%window_40 = select i1 %cmp34, i8 %window_43, i8 %tmp_1" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 354 'select' 'window_40' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 355 [1/1] (0.57ns)   --->   "%tmp_2 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load, i3 1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load, i3 2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load, i3 3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load, i3 4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_load, i8 0, i3 %empty_36" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 355 'sparsemux' 'tmp_2' <Predicate = (!icmp_ln34 & !cmp34_1)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 356 [1/1] (0.39ns)   --->   "%window_41 = select i1 %cmp34_1, i8 %window_43, i8 %tmp_2" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 356 'select' 'window_41' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 357 [1/1] (0.57ns)   --->   "%tmp_3 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load, i3 1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load, i3 2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load, i3 3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load, i3 4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_load, i8 0, i3 %empty_39" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 357 'sparsemux' 'tmp_3' <Predicate = (!icmp_ln34 & !cmp34_2)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 358 [1/1] (0.39ns)   --->   "%window_42 = select i1 %cmp34_2, i8 %window_43, i8 %tmp_3" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 358 'select' 'window_42' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 359 [1/1] (0.57ns)   --->   "%tmp_4 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load, i3 1, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_load, i3 2, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_load, i3 3, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_load, i3 4, i8 %blur_edge_stream_stream_axis_0_int_int_int_line_buf_load, i8 0, i3 %empty_41" [../../eece4632/blur_edge_combined.cpp:61]   --->   Operation 359 'sparsemux' 'tmp_4' <Predicate = (!icmp_ln34 & !cmp34_3)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 360 [1/1] (0.39ns)   --->   "%pix_27 = select i1 %cmp34_3, i8 %window_43, i8 %tmp_4" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 360 'select' 'pix_27' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 361 [1/1] (0.67ns)   --->   "%sub_ln65 = sub i3 4, i3 %trunc_ln65" [../../eece4632/blur_edge_combined.cpp:65]   --->   Operation 361 'sub' 'sub_ln65' <Predicate = (!icmp_ln34 & icmp_ln65)> <Delay = 0.67> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 362 [1/1] (0.20ns)   --->   "%kc_start = select i1 %icmp_ln65, i3 %sub_ln65, i3 0" [../../eece4632/blur_edge_combined.cpp:65]   --->   Operation 362 'select' 'kc_start' <Predicate = (!icmp_ln34)> <Delay = 0.20> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.20> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 363 [1/1] (0.00ns)   --->   "%tmp_16 = partselect i2 @_ssdm_op_PartSelect.i2.i3.i32.i32, i3 %kc_start, i32 1, i32 2" [../../eece4632/blur_edge_combined.cpp:73]   --->   Operation 363 'partselect' 'tmp_16' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 364 [1/1] (0.54ns)   --->   "%icmp_ln73 = icmp_ne  i2 %tmp_16, i2 0" [../../eece4632/blur_edge_combined.cpp:73]   --->   Operation 364 'icmp' 'icmp_ln73' <Predicate = (!icmp_ln34)> <Delay = 0.54> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.54> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 365 [1/1] (0.20ns)   --->   "%kc_c_1 = select i1 %icmp_ln73, i3 %kc_start, i3 1" [../../eece4632/blur_edge_combined.cpp:73]   --->   Operation 365 'select' 'kc_c_1' <Predicate = (!icmp_ln34)> <Delay = 0.20> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.20> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 366 [1/1] (0.67ns)   --->   "%icmp_ln73_1 = icmp_ugt  i3 %kc_start, i3 2" [../../eece4632/blur_edge_combined.cpp:73]   --->   Operation 366 'icmp' 'icmp_ln73_1' <Predicate = (!icmp_ln34)> <Delay = 0.67> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 367 [1/1] (0.20ns)   --->   "%kc_c_2 = select i1 %icmp_ln73_1, i3 %kc_start, i3 2" [../../eece4632/blur_edge_combined.cpp:73]   --->   Operation 367 'select' 'kc_c_2' <Predicate = (!icmp_ln34)> <Delay = 0.20> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.20> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 368 [1/1] (0.57ns)   --->   "%pix = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %window_load, i3 1, i8 %window_20, i3 2, i8 %window_21, i3 3, i8 %window_22, i3 4, i8 %window_40, i8 0, i3 %kc_start" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 368 'sparsemux' 'pix' <Predicate = (!icmp_ln34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 369 [1/1] (0.00ns)   --->   "%zext_ln74 = zext i8 %pix" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 369 'zext' 'zext_ln74' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 370 [1/1] (0.52ns)   --->   "%pix_1 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.4i8.i8.i3, i3 1, i8 %window_20, i3 2, i8 %window_21, i3 3, i8 %window_22, i3 4, i8 %window_40, i8 0, i3 %kc_c_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 370 'sparsemux' 'pix_1' <Predicate = (!icmp_ln34)> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 371 [1/1] (0.47ns)   --->   "%pix_2 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.3i8.i8.i3, i3 2, i8 %window_21, i3 3, i8 %window_22, i3 4, i8 %window_40, i8 0, i3 %kc_c_2" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 371 'sparsemux' 'pix_2' <Predicate = (!icmp_ln34)> <Delay = 0.47> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.47> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 372 [1/1] (0.00ns)   --->   "%zext_ln74_1 = zext i8 %pix_2" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 372 'zext' 'zext_ln74_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 373 [1/1] (0.67ns)   --->   "%icmp_ln74 = icmp_eq  i3 %kc_start, i3 4" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 373 'icmp' 'icmp_ln74' <Predicate = (!icmp_ln34)> <Delay = 0.67> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 374 [1/1] (0.39ns)   --->   "%pix_23 = select i1 %icmp_ln74, i8 %window_40, i8 %window_22" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 374 'select' 'pix_23' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 375 [1/1] (0.00ns)   --->   "%zext_ln74_2 = zext i8 %window_40" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 375 'zext' 'zext_ln74_2' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 376 [1/1] (0.57ns)   --->   "%pix_5 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %window_4_load, i3 1, i8 %window_23, i3 2, i8 %window_24, i3 3, i8 %window_28, i3 4, i8 %window_41, i8 0, i3 %kc_start" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 376 'sparsemux' 'pix_5' <Predicate = (!icmp_ln34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 377 [1/1] (0.52ns)   --->   "%pix_6 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.4i8.i8.i3, i3 1, i8 %window_23, i3 2, i8 %window_24, i3 3, i8 %window_28, i3 4, i8 %window_41, i8 0, i3 %kc_c_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 377 'sparsemux' 'pix_6' <Predicate = (!icmp_ln34)> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 378 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75_2)   --->   "%tmp_17 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i8.i3, i8 %pix_6, i3 0" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 378 'bitconcatenate' 'tmp_17' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 379 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75_2)   --->   "%zext_ln75 = zext i11 %tmp_17" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 379 'zext' 'zext_ln75' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 380 [1/1] (0.47ns)   --->   "%pix_7 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.3i8.i8.i3, i3 2, i8 %window_24, i3 3, i8 %window_28, i3 4, i8 %window_41, i8 0, i3 %kc_c_2" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 380 'sparsemux' 'pix_7' <Predicate = (!icmp_ln34)> <Delay = 0.47> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.47> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 381 [1/1] (0.00ns)   --->   "%zext_ln74_3 = zext i8 %pix_7" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 381 'zext' 'zext_ln74_3' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 382 [1/1] (0.39ns)   --->   "%pix_24 = select i1 %icmp_ln74, i8 %window_41, i8 %window_28" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 382 'select' 'pix_24' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 383 [1/1] (0.57ns)   --->   "%pix_25 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %window_8_load, i3 1, i8 %window_29, i3 2, i8 %window_30, i3 3, i8 %window_31, i3 4, i8 %window_42, i8 0, i3 %kc_start" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 383 'sparsemux' 'pix_25' <Predicate = (!icmp_ln34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 384 [1/1] (0.00ns)   --->   "%zext_ln74_4 = zext i8 %pix_25" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 384 'zext' 'zext_ln74_4' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 385 [1/1] (0.52ns)   --->   "%pix_3 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.4i8.i8.i3, i3 1, i8 %window_29, i3 2, i8 %window_30, i3 3, i8 %window_31, i3 4, i8 %window_42, i8 0, i3 %kc_c_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 385 'sparsemux' 'pix_3' <Predicate = (!icmp_ln34)> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 386 [1/1] (0.00ns) (grouped into LUT with out node tmp12)   --->   "%zext_ln74_5 = zext i8 %pix_3" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 386 'zext' 'zext_ln74_5' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 387 [1/1] (0.00ns) (grouped into LUT with out node tmp12)   --->   "%pix_26 = select i1 %icmp_ln74, i8 %window_42, i8 %window_31" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 387 'select' 'pix_26' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 388 [1/1] (0.00ns) (grouped into LUT with out node tmp12)   --->   "%zext_ln75_1 = zext i8 %pix_26" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 388 'zext' 'zext_ln75_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 389 [1/1] (0.00ns)   --->   "%zext_ln74_6 = zext i8 %window_42" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 389 'zext' 'zext_ln74_6' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 390 [1/1] (0.57ns)   --->   "%pix_8 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %window_12_load, i3 1, i8 %window_32, i3 2, i8 %window_33, i3 3, i8 %window_34, i3 4, i8 %pix_27, i8 0, i3 %kc_start" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 390 'sparsemux' 'pix_8' <Predicate = (!icmp_ln34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 391 [1/1] (0.52ns)   --->   "%pix_4 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.4i8.i8.i3, i3 1, i8 %window_32, i3 2, i8 %window_33, i3 3, i8 %window_34, i3 4, i8 %pix_27, i8 0, i3 %kc_c_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 391 'sparsemux' 'pix_4' <Predicate = (!icmp_ln34)> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 392 [1/1] (0.47ns)   --->   "%pix_9 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.3i8.i8.i3, i3 2, i8 %window_33, i3 3, i8 %window_34, i3 4, i8 %pix_27, i8 0, i3 %kc_c_2" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 392 'sparsemux' 'pix_9' <Predicate = (!icmp_ln34)> <Delay = 0.47> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.47> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 393 [1/1] (0.00ns)   --->   "%zext_ln74_7 = zext i8 %pix_9" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 393 'zext' 'zext_ln74_7' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 394 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75_2)   --->   "%select_ln74_3 = select i1 %icmp_ln74, i8 %pix_27, i8 %window_34" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 394 'select' 'select_ln74_3' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 395 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75_2)   --->   "%shl_ln = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i8.i3, i8 %select_ln74_3, i3 0" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 395 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 396 [1/1] (0.00ns) (grouped into LUT with out node sub_ln75_2)   --->   "%zext_ln74_8 = zext i11 %shl_ln" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 396 'zext' 'zext_ln74_8' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 397 [1/1] (0.57ns)   --->   "%pix_10 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.5i8.i8.i3, i3 0, i8 %window_16_load, i3 1, i8 %window_35, i3 2, i8 %window_36, i3 3, i8 %window_37, i3 4, i8 %window_43, i8 0, i3 %kc_start" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 397 'sparsemux' 'pix_10' <Predicate = (!icmp_ln34)> <Delay = 0.57> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 398 [1/1] (0.00ns)   --->   "%zext_ln74_11 = zext i8 %pix_10" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 398 'zext' 'zext_ln74_11' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 399 [1/1] (0.00ns)   --->   "%zext_ln74_9 = zext i8 %pix_10" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 399 'zext' 'zext_ln74_9' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 400 [1/1] (0.52ns)   --->   "%pix_11 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.4i8.i8.i3, i3 1, i8 %window_35, i3 2, i8 %window_36, i3 3, i8 %window_37, i3 4, i8 %window_43, i8 0, i3 %kc_c_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 400 'sparsemux' 'pix_11' <Predicate = (!icmp_ln34)> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 401 [1/1] (0.47ns)   --->   "%pix_12 = sparsemux i8 @_ssdm_op_SparseMux.ap_auto.3i8.i8.i3, i3 2, i8 %window_36, i3 3, i8 %window_37, i3 4, i8 %window_43, i8 0, i3 %kc_c_2" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 401 'sparsemux' 'pix_12' <Predicate = (!icmp_ln34)> <Delay = 0.47> <CoreInst = "SparseMux">   --->   Core 144 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.47> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 402 [1/1] (0.00ns)   --->   "%zext_ln74_10 = zext i8 %pix_12" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 402 'zext' 'zext_ln74_10' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 403 [1/1] (0.39ns)   --->   "%pix_28 = select i1 %icmp_ln74, i8 %window_43, i8 %window_37" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 403 'select' 'pix_28' <Predicate = (!icmp_ln34)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.39> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_38 : Operation 404 [1/1] (0.79ns) (out node of the LUT)   --->   "%sub_ln75_2 = sub i12 %zext_ln74_8, i12 %zext_ln75" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 404 'sub' 'sub_ln75_2' <Predicate = (!icmp_ln34)> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 405 [1/1] (0.00ns)   --->   "%add_ln75_cast7 = sext i12 %sub_ln75_2" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 405 'sext' 'add_ln75_cast7' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 406 [1/1] (0.00ns)   --->   "%add_ln75_cast5 = sext i12 %sub_ln75_2" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 406 'sext' 'add_ln75_cast5' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 407 [1/1] (0.00ns)   --->   "%window_46_cast = zext i8 %window_41" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 407 'zext' 'window_46_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 408 [1/1] (0.00ns)   --->   "%pix_5_cast = zext i8 %pix_5" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 408 'zext' 'pix_5_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 409 [1/1] (0.76ns)   --->   "%empty_20 = sub i9 %window_46_cast, i9 %pix_5_cast" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 409 'sub' 'empty_20' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 410 [1/1] (0.00ns)   --->   "%p_cast30 = sext i9 %empty_20" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 410 'sext' 'p_cast30' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 411 [1/1] (0.00ns)   --->   "%pix_8_cast = zext i8 %pix_8" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 411 'zext' 'pix_8_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 412 [1/1] (0.00ns)   --->   "%pix_29_cast = zext i8 %pix_27" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 412 'zext' 'pix_29_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 413 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%empty_21 = sub i10 %p_cast30, i10 %pix_8_cast" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 413 'sub' 'empty_21' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 414 [1/1] (0.96ns) (root node of TernaryAdder)   --->   "%tmp313 = add i10 %empty_21, i10 %pix_29_cast" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 414 'add' 'tmp313' <Predicate = (!icmp_ln34)> <Delay = 0.96> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 415 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i10.i2, i10 %tmp313, i2 0" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 415 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 416 [1/1] (0.00ns)   --->   "%tmp_cast = sext i12 %tmp" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 416 'sext' 'tmp_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 417 [1/1] (0.00ns)   --->   "%pix_24_cast = zext i8 %pix_23" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 417 'zext' 'pix_24_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 418 [1/1] (0.00ns)   --->   "%pix_1_cast = zext i8 %pix_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 418 'zext' 'pix_1_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 419 [1/1] (0.76ns)   --->   "%empty_22 = sub i9 %pix_24_cast, i9 %pix_1_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 419 'sub' 'empty_22' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 420 [1/1] (0.00ns)   --->   "%p_cast31 = sext i9 %empty_22" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 420 'sext' 'p_cast31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 421 [1/1] (0.00ns)   --->   "%pix_12_cast = zext i8 %pix_11" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 421 'zext' 'pix_12_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 422 [1/1] (0.00ns)   --->   "%pix_30_cast = zext i8 %pix_28" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 422 'zext' 'pix_30_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 423 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%empty_23 = sub i10 %p_cast31, i10 %pix_12_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 423 'sub' 'empty_23' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 424 [1/1] (0.96ns) (root node of TernaryAdder)   --->   "%tmp911 = add i10 %empty_23, i10 %pix_30_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 424 'add' 'tmp911' <Predicate = (!icmp_ln34)> <Delay = 0.96> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 425 [1/1] (0.00ns)   --->   "%tmp_5 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i10.i1, i10 %tmp911, i1 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 425 'bitconcatenate' 'tmp_5' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 426 [1/1] (0.00ns)   --->   "%tmp_5_cast = sext i11 %tmp_5" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 426 'sext' 'tmp_5_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 427 [1/1] (0.76ns) (out node of the LUT)   --->   "%tmp12 = sub i9 %zext_ln75_1, i9 %zext_ln74_5" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 427 'sub' 'tmp12' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 428 [1/1] (0.00ns)   --->   "%p_shl1 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i9.i4, i9 %tmp12, i4 0" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 428 'bitconcatenate' 'p_shl1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 429 [1/1] (0.00ns)   --->   "%tmp_18 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i9.i2, i9 %tmp12, i2 0" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 429 'bitconcatenate' 'tmp_18' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 430 [1/1] (0.00ns)   --->   "%p_shl94 = sext i11 %tmp_18" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 430 'sext' 'p_shl94' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 431 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp13 = sub i13 %p_shl1, i13 %p_shl94" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 431 'sub' 'tmp13' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 432 [1/1] (0.76ns)   --->   "%tmp15 = sub i9 %zext_ln74_6, i9 %zext_ln74_4" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 432 'sub' 'tmp15' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 433 [1/1] (0.00ns)   --->   "%tmp_19 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i9.i3, i9 %tmp15, i3 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 433 'bitconcatenate' 'tmp_19' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 434 [1/1] (0.00ns)   --->   "%p_shl91 = sext i12 %tmp_19" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 434 'sext' 'p_shl91' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 435 [1/1] (0.00ns)   --->   "%tmp_20 = bitconcatenate i10 @_ssdm_op_BitConcatenate.i10.i9.i1, i9 %tmp15, i1 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 435 'bitconcatenate' 'tmp_20' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 436 [1/1] (0.00ns)   --->   "%p_shl92 = sext i10 %tmp_20" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 436 'sext' 'p_shl92' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 437 [1/1] (0.80ns)   --->   "%tmp16 = sub i13 %p_shl91, i13 %p_shl92" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 437 'sub' 'tmp16' <Predicate = (!icmp_ln34)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 438 [1/1] (0.00ns)   --->   "%tmp16_cast6 = sext i13 %tmp16" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 438 'sext' 'tmp16_cast6' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 439 [1/1] (0.00ns)   --->   "%pix_25_cast = zext i8 %pix_24" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 439 'zext' 'pix_25_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 440 [1/1] (0.00ns)   --->   "%pix_4_cast = zext i8 %pix_4" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 440 'zext' 'pix_4_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 441 [1/1] (0.76ns)   --->   "%tmp189 = sub i9 %pix_25_cast, i9 %pix_4_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 441 'sub' 'tmp189' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 442 [1/1] (0.00ns)   --->   "%tmp_6 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i9.i3, i9 %tmp189, i3 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 442 'bitconcatenate' 'tmp_6' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 443 [1/1] (0.00ns)   --->   "%sext_ln75 = sext i12 %tmp_6" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 443 'sext' 'sext_ln75' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 444 [1/1] (0.76ns)   --->   "%sub_ln75 = sub i9 %zext_ln74_2, i9 %zext_ln74" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 444 'sub' 'sub_ln75' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 445 [1/1] (0.00ns)   --->   "%sub_ln75_cast = sext i9 %sub_ln75" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 445 'sext' 'sub_ln75_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 446 [1/1] (0.76ns)   --->   "%empty_24 = add i9 %window_46_cast, i9 %pix_5_cast" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 446 'add' 'empty_24' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 447 [1/1] (0.00ns)   --->   "%p_cast35 = zext i9 %empty_24" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 447 'zext' 'p_cast35' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 448 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%empty_25 = sub i10 %pix_8_cast, i10 %p_cast35" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 448 'sub' 'empty_25' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 449 [1/1] (0.96ns) (root node of TernaryAdder)   --->   "%tmp247 = add i10 %empty_25, i10 %pix_29_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 449 'add' 'tmp247' <Predicate = (!icmp_ln34)> <Delay = 0.96> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 450 [1/1] (0.00ns)   --->   "%tmp_7 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i10.i1, i10 %tmp247, i1 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 450 'bitconcatenate' 'tmp_7' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 451 [1/1] (0.00ns)   --->   "%tmp_7_cast = sext i11 %tmp_7" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 451 'sext' 'tmp_7_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 452 [1/1] (0.76ns)   --->   "%empty_26 = add i9 %pix_24_cast, i9 %pix_1_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 452 'add' 'empty_26' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 453 [1/1] (0.00ns)   --->   "%p_cast40 = zext i9 %empty_26" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 453 'zext' 'p_cast40' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 454 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%empty_27 = sub i10 %pix_12_cast, i10 %p_cast40" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 454 'sub' 'empty_27' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 455 [1/1] (0.96ns) (root node of TernaryAdder)   --->   "%tmp305 = add i10 %empty_27, i10 %pix_30_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 455 'add' 'tmp305' <Predicate = (!icmp_ln34)> <Delay = 0.96> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 456 [1/1] (0.00ns)   --->   "%tmp_8 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i10.i2, i10 %tmp305, i2 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 456 'bitconcatenate' 'tmp_8' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 457 [1/1] (0.00ns)   --->   "%tmp_8_cast = sext i12 %tmp_8" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 457 'sext' 'tmp_8_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 458 [1/1] (0.76ns)   --->   "%tmp333 = sub i9 %pix_4_cast, i9 %pix_25_cast" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 458 'sub' 'tmp333' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 459 [1/1] (0.00ns)   --->   "%tmp_9 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i9.i3, i9 %tmp333, i3 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 459 'bitconcatenate' 'tmp_9' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 460 [1/1] (0.00ns)   --->   "%tmp_9_cast = sext i12 %tmp_9" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 460 'sext' 'tmp_9_cast' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 461 [1/1] (0.76ns)   --->   "%tmp36 = sub i9 %zext_ln74_7, i9 %zext_ln74_3" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 461 'sub' 'tmp36' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 462 [1/1] (0.00ns)   --->   "%tmp_21 = bitconcatenate i13 @_ssdm_op_BitConcatenate.i13.i9.i4, i9 %tmp36, i4 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 462 'bitconcatenate' 'tmp_21' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 463 [1/1] (0.00ns)   --->   "%p_shl89 = sext i13 %tmp_21" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 463 'sext' 'p_shl89' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 464 [1/1] (0.00ns)   --->   "%tmp_22 = bitconcatenate i11 @_ssdm_op_BitConcatenate.i11.i9.i2, i9 %tmp36, i2 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 464 'bitconcatenate' 'tmp_22' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 465 [1/1] (0.00ns)   --->   "%p_shl90 = sext i11 %tmp_22" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 465 'sext' 'p_shl90' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 466 [1/1] (0.82ns)   --->   "%tmp37 = sub i14 %p_shl89, i14 %p_shl90" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 466 'sub' 'tmp37' <Predicate = (!icmp_ln34)> <Delay = 0.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 467 [1/1] (0.76ns)   --->   "%tmp39 = sub i9 %zext_ln74_10, i9 %zext_ln74_1" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 467 'sub' 'tmp39' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 468 [1/1] (0.00ns)   --->   "%tmp_23 = bitconcatenate i12 @_ssdm_op_BitConcatenate.i12.i9.i3, i9 %tmp39, i3 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 468 'bitconcatenate' 'tmp_23' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 469 [1/1] (0.00ns)   --->   "%p_shl = sext i12 %tmp_23" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 469 'sext' 'p_shl' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 470 [1/1] (0.00ns)   --->   "%tmp_24 = bitconcatenate i10 @_ssdm_op_BitConcatenate.i10.i9.i1, i9 %tmp39, i1 0" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 470 'bitconcatenate' 'tmp_24' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 471 [1/1] (0.00ns)   --->   "%p_shl88 = sext i10 %tmp_24" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 471 'sext' 'p_shl88' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 472 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp40 = sub i13 %p_shl, i13 %p_shl88" [../../eece4632/blur_edge_combined.cpp:74]   --->   Operation 472 'sub' 'tmp40' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 473 [1/1] (0.00ns)   --->   "%zext_ln75_2 = zext i8 %window_43" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 473 'zext' 'zext_ln75_2' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 474 [1/1] (0.00ns)   --->   "%zext_ln75_3 = zext i8 %window_43" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 474 'zext' 'zext_ln75_3' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 475 [1/1] (0.82ns) (root node of TernaryAdder)   --->   "%add_ln75 = add i13 %sub_ln75_cast, i13 %tmp13" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 475 'add' 'add_ln75' <Predicate = (!icmp_ln34)> <Delay = 0.82> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 476 [1/1] (0.00ns)   --->   "%sext_ln75_1 = sext i13 %add_ln75" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 476 'sext' 'sext_ln75_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 477 [1/1] (0.80ns)   --->   "%add_ln75_1 = add i13 %sext_ln75, i13 %add_ln75_cast5" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 477 'add' 'add_ln75_1' <Predicate = (!icmp_ln34)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 478 [1/1] (0.00ns)   --->   "%sext_ln75_2 = sext i13 %add_ln75_1" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 478 'sext' 'sext_ln75_2' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 479 [1/1] (0.82ns)   --->   "%add_ln75_2 = add i14 %sext_ln75_2, i14 %tmp16_cast6" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 479 'add' 'add_ln75_2' <Predicate = (!icmp_ln34)> <Delay = 0.82> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 480 [1/1] (0.00ns)   --->   "%sext_ln75_3 = sext i14 %add_ln75_2" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 480 'sext' 'sext_ln75_3' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 481 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln75_3 = add i15 %sext_ln75_3, i15 %sext_ln75_1" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 481 'add' 'add_ln75_3' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 482 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%sub_ln75_1 = sub i15 %add_ln75_3, i15 %zext_ln74_11" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 482 'sub' 'sub_ln75_1' <Predicate = (!icmp_ln34)> <Delay = 0.73> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 483 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln75_4 = add i15 %tmp_cast, i15 %sub_ln75_1" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 483 'add' 'add_ln75_4' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 484 [1/1] (0.79ns)   --->   "%add_ln75_5 = add i12 %tmp_5_cast, i12 %zext_ln75_2" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 484 'add' 'add_ln75_5' <Predicate = (!icmp_ln34)> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 485 [1/1] (0.00ns)   --->   "%sext_ln75_4 = sext i12 %add_ln75_5" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 485 'sext' 'sext_ln75_4' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 486 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%Gx = add i15 %sext_ln75_4, i15 %add_ln75_4" [../../eece4632/blur_edge_combined.cpp:75]   --->   Operation 486 'add' 'Gx' <Predicate = (!icmp_ln34)> <Delay = 0.73> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 487 [1/1] (0.76ns)   --->   "%add_ln76 = add i9 %zext_ln74_2, i9 %zext_ln74" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 487 'add' 'add_ln76' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 488 [1/1] (0.00ns)   --->   "%zext_ln76 = zext i9 %add_ln76" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 488 'zext' 'zext_ln76' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 489 [1/1] (0.80ns)   --->   "%sub_ln76 = sub i13 %tmp_9_cast, i13 %zext_ln76" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 489 'sub' 'sub_ln76' <Predicate = (!icmp_ln34)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 490 [1/1] (0.00ns)   --->   "%sext_ln76_1 = sext i13 %sub_ln76" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 490 'sext' 'sext_ln76_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 491 [1/1] (0.82ns) (root node of TernaryAdder)   --->   "%add_ln76_1 = add i13 %tmp40, i13 %tmp_7_cast" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 491 'add' 'add_ln76_1' <Predicate = (!icmp_ln34)> <Delay = 0.82> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 492 [1/1] (0.00ns)   --->   "%sext_ln76_2 = sext i13 %add_ln76_1" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 492 'sext' 'sext_ln76_2' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 493 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln76_2 = add i14 %sext_ln76_1, i14 %add_ln75_cast7" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 493 'add' 'add_ln76_2' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 494 [1/1] (0.77ns) (root node of TernaryAdder)   --->   "%add_ln76_3 = add i14 %add_ln76_2, i14 %sext_ln76_2" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 494 'add' 'add_ln76_3' <Predicate = (!icmp_ln34)> <Delay = 0.77> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 495 [1/1] (0.00ns)   --->   "%sext_ln76_3 = sext i14 %add_ln76_3" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 495 'sext' 'sext_ln76_3' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 496 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln76_4 = add i14 %tmp37, i14 %tmp_8_cast" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 496 'add' 'add_ln76_4' <Predicate = (!icmp_ln34)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 497 [1/1] (0.76ns)   --->   "%add_ln76_5 = add i9 %zext_ln74_9, i9 %zext_ln75_3" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 497 'add' 'add_ln76_5' <Predicate = (!icmp_ln34)> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 498 [1/1] (0.00ns)   --->   "%zext_ln76_1 = zext i9 %add_ln76_5" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 498 'zext' 'zext_ln76_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 499 [1/1] (0.77ns) (root node of TernaryAdder)   --->   "%add_ln76_6 = add i14 %zext_ln76_1, i14 %add_ln76_4" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 499 'add' 'add_ln76_6' <Predicate = (!icmp_ln34)> <Delay = 0.77> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.38> <IPBlock> <Opcode : '' 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_38 : Operation 500 [1/1] (0.00ns)   --->   "%sext_ln76_4 = sext i14 %add_ln76_6" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 500 'sext' 'sext_ln76_4' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 501 [1/1] (0.83ns)   --->   "%Gy = add i15 %sext_ln76_4, i15 %sext_ln76_3" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 501 'add' 'Gy' <Predicate = (!icmp_ln34)> <Delay = 0.83> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.83> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 502 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_43, i8 %window_19" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 502 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 503 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_37, i8 %window_18" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 503 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 504 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_36, i8 %window_17" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 504 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 505 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %pix_27, i8 %window_15" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 505 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 506 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_34, i8 %window_14" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 506 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 507 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_33, i8 %window_13" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 507 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 508 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_42, i8 %window_11" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 508 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 509 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_31, i8 %window_10" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 509 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 510 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_30, i8 %window_9" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 510 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 511 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_41, i8 %window_7" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 511 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 512 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_28, i8 %window_6" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 512 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 513 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_24, i8 %window_5" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 513 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 514 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_40, i8 %window_3" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 514 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 515 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_22, i8 %window_2" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 515 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 516 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_21, i8 %window_1" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 516 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 517 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_35, i8 %window_16" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 517 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 518 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_32, i8 %window_12" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 518 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 519 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_29, i8 %window_8" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 519 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 520 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_23, i8 %window_4" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 520 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 521 [1/1] (0.00ns)   --->   "%store_ln31 = store i8 %window_20, i8 %window" [../../eece4632/blur_edge_combined.cpp:31]   --->   Operation 521 'store' 'store_ln31' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_38 : Operation 540 [1/1] (0.42ns)   --->   "%ret_ln0 = ret"   --->   Operation 540 'ret' 'ret_ln0' <Predicate = (icmp_ln34)> <Delay = 0.42>
+
+State 39 <SV = 38> <Delay = 3.26>
+ST_39 : Operation 522 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%sext_ln76 = sext i15 %Gx" [../../eece4632/blur_edge_combined.cpp:76]   --->   Operation 522 'sext' 'sext_ln76' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 523 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%sext_ln68 = sext i15 %Gy" [../../eece4632/blur_edge_combined.cpp:68]   --->   Operation 523 'sext' 'sext_ln68' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 524 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%tmp_25 = bitselect i1 @_ssdm_op_BitSelect.i1.i16.i32, i16 %sext_ln76, i32 15" [../../eece4632/blur_edge_combined.cpp:82]   --->   Operation 524 'bitselect' 'tmp_25' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 525 [1/1] (0.84ns)   --->   "%sub_ln82 = sub i15 0, i15 %Gx" [../../eece4632/blur_edge_combined.cpp:82]   --->   Operation 525 'sub' 'sub_ln82' <Predicate = true> <Delay = 0.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 526 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%select_ln82 = select i1 %tmp_25, i15 %sub_ln82, i15 %Gx" [../../eece4632/blur_edge_combined.cpp:82]   --->   Operation 526 'select' 'select_ln82' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_39 : Operation 527 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%sext_ln83 = sext i15 %select_ln82" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 527 'sext' 'sext_ln83' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 528 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%tmp_26 = bitselect i1 @_ssdm_op_BitSelect.i1.i16.i32, i16 %sext_ln68, i32 15" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 528 'bitselect' 'tmp_26' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 529 [1/1] (0.84ns)   --->   "%sub_ln83 = sub i15 0, i15 %Gy" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 529 'sub' 'sub_ln83' <Predicate = true> <Delay = 0.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 530 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%select_ln83 = select i1 %tmp_26, i15 %sub_ln83, i15 %Gy" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 530 'select' 'select_ln83' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_39 : Operation 531 [1/1] (0.00ns) (grouped into LUT with out node mag)   --->   "%sext_ln83_1 = sext i15 %select_ln83" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 531 'sext' 'sext_ln83_1' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 532 [1/1] (0.84ns) (out node of the LUT)   --->   "%mag = add i16 %sext_ln83_1, i16 %sext_ln83" [../../eece4632/blur_edge_combined.cpp:83]   --->   Operation 532 'add' 'mag' <Predicate = true> <Delay = 0.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 533 [1/1] (0.85ns)   --->   "%icmp_ln90 = icmp_slt  i16 %mag, i16 %tmp_10" [../../eece4632/blur_edge_combined.cpp:90]   --->   Operation 533 'icmp' 'icmp_ln90' <Predicate = true> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 534 [1/1] (0.00ns) (grouped into LUT with out node select_ln86)   --->   "%xor_ln90 = xor i1 %icmp_ln90, i1 1" [../../eece4632/blur_edge_combined.cpp:90]   --->   Operation 534 'xor' 'xor_ln90' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 535 [1/1] (0.00ns) (grouped into LUT with out node select_ln86)   --->   "%not_or_ln87 = and i1 %icmp14, i1 %icmp11" [../../eece4632/blur_edge_combined.cpp:34]   --->   Operation 535 'and' 'not_or_ln87' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 536 [1/1] (0.00ns) (grouped into LUT with out node select_ln86)   --->   "%result = and i1 %xor_ln90, i1 %not_or_ln87" [../../eece4632/blur_edge_combined.cpp:90]   --->   Operation 536 'and' 'result' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 537 [1/1] (0.28ns) (out node of the LUT)   --->   "%select_ln86 = select i1 %result, i8 255, i8 0" [../../eece4632/blur_edge_combined.cpp:86]   --->   Operation 537 'select' 'select_ln86' <Predicate = true> <Delay = 0.28> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.17> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_39 : Operation 538 [1/1] (0.44ns)   --->   "%write_ln99 = write void @_ssdm_op_Write.axis.volatile.i8P0A.i1P0A.i1P0A.i1P0A.i1P0A.i1P0A.i1P0A, i8 %dst_V_data_V, i1 %dst_V_keep_V, i1 %dst_V_strb_V, i1 %dst_V_user_V, i1 %dst_V_last_V, i1 %dst_V_id_V, i1 %dst_V_dest_V, i8 %select_ln86, i1 %pix_out_keep, i1 %pix_out_strb, i1 0, i1 %pix_out_last, i1 0, i1 0" [../../eece4632/blur_edge_combined.cpp:99]   --->   Operation 538 'write' 'write_ln99' <Predicate = true> <Delay = 0.44> <CoreInst = "regslice">   --->   Core 148 'regslice' <Latency = 0> <II = 1> <Delay = 0.56> <Adapter> <Opcode : 'read' 'write'>
+ST_39 : Operation 539 [1/1] (0.00ns)   --->   "%br_ln36 = br void %VITIS_LOOP_48_1" [../../eece4632/blur_edge_combined.cpp:36]   --->   Operation 539 'br' 'br_ln36' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 0.427ns
+The critical path consists of the following:
+	'alloca' operation 64 bit ('indvar_flatten') [30]  (0.000 ns)
+	'store' operation 0 bit ('store_ln0') of constant 0 on local variable 'indvar_flatten' [53]  (0.427 ns)
+
+ <State 2>: 4.316ns
+The critical path consists of the following:
+	'load' operation 10 bit ('c_load', ../../eece4632/blur_edge_combined.cpp:36) on local variable 'c', ../../eece4632/blur_edge_combined.cpp:36 [77]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln36', ../../eece4632/blur_edge_combined.cpp:36) [80]  (1.016 ns)
+	'select' operation 31 bit ('select_ln34_1', ../../eece4632/blur_edge_combined.cpp:34) [86]  (0.418 ns)
+	'add' operation 32 bit ('ri', ../../eece4632/blur_edge_combined.cpp:34) [90]  (1.006 ns)
+	'select' operation 31 bit ('ri', ../../eece4632/blur_edge_combined.cpp:34) [93]  (0.418 ns)
+	'urem' operation 3 bit ('empty_32', ../../eece4632/blur_edge_combined.cpp:34) [100]  (1.458 ns)
+
+ <State 3>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 4>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 5>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 6>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 7>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 8>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 9>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 10>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 11>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 12>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 13>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 14>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 15>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 16>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 17>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 18>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 19>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 20>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 21>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 22>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 23>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 24>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 25>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 26>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 27>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 28>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 29>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 30>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 31>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 32>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 33>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 34>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 35>: 1.458ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+
+ <State 36>: 3.434ns
+The critical path consists of the following:
+	'urem' operation 3 bit ('empty_28', ../../eece4632/blur_edge_combined.cpp:34) [88]  (1.458 ns)
+	'store' operation 0 bit ('store_ln45', ../../eece4632/blur_edge_combined.cpp:45) of variable 'pix_in.data', ../../eece4632/blur_edge_combined.cpp:41 on array 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_1' [132]  (1.237 ns)
+	blocking operation 0.738187 ns on control path)
+
+ <State 37>: 1.237ns
+The critical path consists of the following:
+	'load' operation 8 bit ('blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load', ../../eece4632/blur_edge_combined.cpp:61) on array 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_4' [152]  (1.237 ns)
+
+ <State 38>: 6.935ns
+The critical path consists of the following:
+	'load' operation 8 bit ('blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_load', ../../eece4632/blur_edge_combined.cpp:61) on array 'blur_edge_stream_stream_axis_0_int_int_int_line_buf_4' [152]  (1.237 ns)
+	'sparsemux' operation 8 bit ('tmp_2', ../../eece4632/blur_edge_combined.cpp:61) [159]  (0.574 ns)
+	'select' operation 8 bit ('window', ../../eece4632/blur_edge_combined.cpp:34) [160]  (0.393 ns)
+	'sparsemux' operation 8 bit ('pix_5', ../../eece4632/blur_edge_combined.cpp:74) [183]  (0.574 ns)
+	'add' operation 9 bit ('empty_24', ../../eece4632/blur_edge_combined.cpp:34) [253]  (0.765 ns)
+	'sub' operation 10 bit ('empty_25', ../../eece4632/blur_edge_combined.cpp:74) [255]  (0.000 ns)
+	'add' operation 10 bit ('tmp247', ../../eece4632/blur_edge_combined.cpp:74) [256]  (0.960 ns)
+	'add' operation 13 bit ('add_ln76_1', ../../eece4632/blur_edge_combined.cpp:76) [299]  (0.824 ns)
+	'add' operation 14 bit ('add_ln76_3', ../../eece4632/blur_edge_combined.cpp:76) [302]  (0.778 ns)
+	'add' operation 15 bit ('Gy', ../../eece4632/blur_edge_combined.cpp:76) [309]  (0.831 ns)
+
+ <State 39>: 3.264ns
+The critical path consists of the following:
+	'sub' operation 15 bit ('sub_ln82', ../../eece4632/blur_edge_combined.cpp:82) [312]  (0.842 ns)
+	'select' operation 15 bit ('select_ln82', ../../eece4632/blur_edge_combined.cpp:82) [313]  (0.000 ns)
+	'add' operation 16 bit ('mag', ../../eece4632/blur_edge_combined.cpp:83) [319]  (0.842 ns)
+	'icmp' operation 1 bit ('icmp_ln90', ../../eece4632/blur_edge_combined.cpp:90) [320]  (0.853 ns)
+	'xor' operation 1 bit ('xor_ln90', ../../eece4632/blur_edge_combined.cpp:90) [321]  (0.000 ns)
+	'and' operation 1 bit ('result', ../../eece4632/blur_edge_combined.cpp:90) [327]  (0.000 ns)
+	'select' operation 8 bit ('select_ln86', ../../eece4632/blur_edge_combined.cpp:86) [328]  (0.287 ns)
+	axis write operation ('write_ln99', ../../eece4632/blur_edge_combined.cpp:99) on port 'dst_V_data_V' (../../eece4632/blur_edge_combined.cpp:99) [329]  (0.440 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

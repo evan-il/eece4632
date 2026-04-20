@@ -1,0 +1,19 @@
+{
+  "0": {
+    "basicblocks": 23,
+    "calls": "",
+    "file": "blur_edge_combined.cpp",
+    "fileloc": 14,
+    "instructions": 400,
+    "loads": {
+      "G": 20,
+      "L": 4
+    },
+    "name": "blur_edge",
+    "stores": {
+      "G": 5,
+      "L": 4
+    },
+    "total_instructions": 400
+  }
+}
