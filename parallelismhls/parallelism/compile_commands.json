@@ -1,6 +1,6 @@
 [
   {
-    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism",
+    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\parallelismhls\\parallelism",
     "arguments": [
       "C:\\Xilinx\\Vitis_HLS\\2024.1\\vcxx\\libexec\\clang++.exe",
       "-fhls",
@@ -12,7 +12,7 @@
     "file": "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\blur_edge_combined.cpp"
   },
   {
-    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\parallelismhls\\parallelism",
+    "directory": "C:\\Users\\gao.hen\\Desktop\\parallelism\\eece4632\\parallelismhls\\parallelism",
     "arguments": [
       "C:\\Xilinx\\Vitis_HLS\\2024.1\\vcxx\\libexec\\clang++.exe",
       "-fhls-tb",

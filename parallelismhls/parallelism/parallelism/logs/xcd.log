@@ -48,3 +48,28 @@
 04/20/26 14:08:27: SERVER: destructor for server bound to port 63789
 04/20/26 14:08:27: Server exiting with status 0.
 04/20/26 14:08:27: Closing log file.
+04/20/26 14:13:52: Running xcd server. This server was NOT built by gradle, but presumably rdi.
+04/20/26 14:13:52: Server was asked to start on port: '61401'
+04/20/26 14:13:52: Server is using token UUID: '40bd9911-b9ce-47d3-b337-2dc264fdc02f'
+04/20/26 14:13:52: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+04/20/26 14:13:52: Attempting to start server on port '61401'
+04/20/26 14:13:52: Running Dispatch Server
+04/20/26 14:13:52: Version 2.2.0
+04/20/26 14:13:54: Dispatch Server: Accepted socket connection from client
+04/20/26 14:13:54: Starting Socket connection
+04/20/26 14:13:54: EXCHANGE_TOKEN received, server token: 40bd9911-b9ce-47d3-b337-2dc264fdc02f, passed token: 40bd9911-b9ce-47d3-b337-2dc264fdc02f
+04/20/26 14:13:54: DISPATCH_HANDLER: Adding handler from function makeHandler in library librdi_system_diagram failed with exception: Could not dynamically load librdi_system_diagram.dll
+04/20/26 14:13:54: SESSION_MGR: creating session with session uuid: '9537bec9-2b53-4e24-8b05-650f70c992d0' and name 'vitis-run_compile_parallelism'
+04/20/26 14:13:54: KERNEL_SVC: creating session with uuid: '9537bec9-2b53-4e24-8b05-650f70c992d0' and name 'vitis-run_compile_parallelism'
+04/20/26 14:13:54: GUIDANCE_SMGR: creating guidance session with uuid: '9537bec9-2b53-4e24-8b05-650f70c992d0' and name 'vitis-run_compile_parallelism'
+04/20/26 14:14:02: Dispatch Server: Accepted socket connection from client
+04/20/26 14:14:02: Starting Socket connection
+04/20/26 14:14:23: SESSION_MGR: closing session for UUID '9537bec9-2b53-4e24-8b05-650f70c992d0' with name 'vitis-run_compile_parallelism'
+04/20/26 14:14:23: KERNEL_SVC: closing session for UUID '9537bec9-2b53-4e24-8b05-650f70c992d0' with name 'vitis-run_compile_parallelism'
+04/20/26 14:14:23: GUIDANCE_SMGR: closing session for UUID '9537bec9-2b53-4e24-8b05-650f70c992d0' with name 'vitis-run_compile_parallelism'
+04/20/26 14:14:23: STOP_SERVER received, server token: 40bd9911-b9ce-47d3-b337-2dc264fdc02f, passed token: 40bd9911-b9ce-47d3-b337-2dc264fdc02f
+04/20/26 14:14:23: Socket received request to stop server.
+04/20/26 14:14:23: Dispatch Server: do_await_stop
+04/20/26 14:14:23: SERVER: destructor for server bound to port 61401
+04/20/26 14:14:23: Server exiting with status 0.
+04/20/26 14:14:23: Closing log file.

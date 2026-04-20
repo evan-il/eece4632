@@ -1,3 +1,3 @@
-relativeroot=C:/Users/gao.hen/Desktop/parallelism/parallelismhls/parallelism
-original_argv=-c --mode hls --config C:\Users\gao.hen\Desktop\parallelism\parallelismhls\parallelism\hls_config.cfg --work_dir parallelism 
+relativeroot=C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismhls/parallelism
+original_argv=--mode hls --package --config C:\Users\gao.hen\Desktop\parallelism\eece4632\parallelismhls\parallelism\hls_config.cfg --work_dir parallelism 
 
