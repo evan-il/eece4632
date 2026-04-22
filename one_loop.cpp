@@ -1,4 +1,4 @@
-#include "blur_edge_combined.h"
+#include "one_loop.h"
 
 //  GX_GAUSS = SOBEL_X ⋆ GAUSS
 //  GY_GAUSS = SOBEL_Y ⋆ GAUSS
@@ -83,8 +83,8 @@ void one_loop(
                 CALC_C: for (int j = 0; j < 9; j++) {
                     #pragma HLS UNROLL
                     acc_t p = (acc_t)window[i][j];
-                    gx += p * GX_COMBINED[i][j];
-                    gy += p * GY_COMBINED[i][j];
+                    gx += p * GX_GAUSS[i][j];
+                    gy += p * GY_GAUSS[i][j];
                 }
             }
 
