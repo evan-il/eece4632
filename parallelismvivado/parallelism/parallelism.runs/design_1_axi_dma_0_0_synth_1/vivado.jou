@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Apr 22 16:09:39 2026
+# Process ID: 15848
+# Current directory: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_axi_dma_0_0_synth_1
+# Command line: vivado.exe -log design_1_axi_dma_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_dma_0_0.tcl
+# Log file: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_axi_dma_0_0_synth_1/design_1_axi_dma_0_0.vds
+# Journal file: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_axi_dma_0_0_synth_1\vivado.jou
+# Running On        :WFXA4BB6DBB317A
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz
+# CPU Frequency     :2904 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :34060 MB
+# Swap memory       :2284 MB
+# Total Virtual     :36345 MB
+# Available Virtual :14788 MB
+#-----------------------------------------------------------
+source design_1_axi_dma_0_0.tcl -notrace

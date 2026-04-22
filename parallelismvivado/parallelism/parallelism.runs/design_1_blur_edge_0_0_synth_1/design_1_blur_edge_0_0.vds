@@ -1,0 +1,766 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Apr 22 16:09:39 2026
+# Process ID: 27908
+# Current directory: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1
+# Command line: vivado.exe -log design_1_blur_edge_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_blur_edge_0_0.tcl
+# Log file: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/design_1_blur_edge_0_0.vds
+# Journal file: C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1\vivado.jou
+# Running On        :WFXA4BB6DBB317A
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz
+# CPU Frequency     :2904 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :34060 MB
+# Swap memory       :2284 MB
+# Total Virtual     :36345 MB
+# Available Virtual :14739 MB
+#-----------------------------------------------------------
+source design_1_blur_edge_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 648.090 ; gain = 199.699
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismhls'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.cache/ip 
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_blur_edge_0_0
+Command: synth_design -top design_1_blur_edge_0_0 -part xczu3eg-sfvc784-2-e -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Device 21-403] Loading part xczu3eg-sfvc784-2-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17952
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1993.094 ; gain = 395.273
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_blur_edge_0_0' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ip/design_1_blur_edge_0_0/synth/design_1_blur_edge_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_blur_edge_Pipeline_row_loop_col_loop' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_blur_edge_Pipeline_row_loop_col_loop.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb.v:7]
+INFO: [Synth 8-3876] $readmem data file './blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb.dat' is read successfully [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb.v:40]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb.v:7]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_urem_31ns_4ns_3_35_1' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:68]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_urem_31ns_4ns_3_35_1_divider' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_urem_31ns_4ns_3_35_1_divider' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_urem_31ns_4ns_3_35_1' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:68]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_sparsemux_11_3_8_1_1' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_11_3_8_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_sparsemux_11_3_8_1_1' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_11_3_8_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_sparsemux_9_3_8_1_1' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_9_3_8_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_sparsemux_9_3_8_1_1' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_9_3_8_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_sparsemux_7_3_8_1_1' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_7_3_8_1_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_sparsemux_7_3_8_1_1' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_sparsemux_7_3_8_1_1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_flow_control_loop_pipe_sequential_init' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_flow_control_loop_pipe_sequential_init' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_blur_edge_Pipeline_row_loop_col_loop' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_blur_edge_Pipeline_row_loop_col_loop.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_control_s_axi' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_control_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_control_s_axi.v:218]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_control_s_axi' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_control_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_mul_32ns_32ns_64_1_1' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_mul_32ns_32ns_64_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_mul_32ns_32ns_64_1_1' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_mul_32ns_32ns_64_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_regslice_both' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_regslice_both' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_regslice_both.v:9]
+INFO: [Synth 8-6157] synthesizing module 'blur_edge_regslice_both__parameterized0' [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge_regslice_both__parameterized0' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'blur_edge' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_blur_edge_0_0' (0#1) [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ip/design_1_blur_edge_0_0/synth/design_1_blur_edge_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element loop[30].divisor_tmp_reg[31] was removed.  [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:52]
+WARNING: [Synth 8-6014] Unused sequential element quot_reg was removed.  [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:122]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_control_s_axi.v:287]
+WARNING: [Synth 8-7129] Port AWADDR[1] in module blur_edge_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[0] in module blur_edge_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module blur_edge_urem_31ns_4ns_3_35_1_divider is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module blur_edge_blur_edge_Pipeline_row_loop_col_loop_blur_edge_stream_stream_axis_0_int_int_ibkb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TUSER[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TID[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TDEST[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2146.215 ; gain = 548.395
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2146.215 ; gain = 548.395
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2146.215 ; gain = 548.395
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.172 . Memory (MB): peak = 2146.215 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ip/design_1_blur_edge_0_0/constraints/blur_edge_ooc.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2240.453 ; gain = 0.348
+Finished Parsing XDC File [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ip/design_1_blur_edge_0_0/constraints/blur_edge_ooc.xdc] for cell 'inst'
+Parsing XDC File [C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2240.453 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.324 . Memory (MB): peak = 2249.023 ; gain = 8.570
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2249.023 ; gain = 651.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu3eg-sfvc784-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2249.023 ; gain = 651.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2249.023 ; gain = 651.203
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[30].remd_tmp_reg[31]' and it is trimmed from '31' to '3' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[30].dividend_tmp_reg[31]' and it is trimmed from '31' to '3' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[29].remd_tmp_reg[30]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[28].remd_tmp_reg[29]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[27].remd_tmp_reg[28]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[26].remd_tmp_reg[27]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[25].remd_tmp_reg[26]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[24].remd_tmp_reg[25]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[23].remd_tmp_reg[24]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[22].remd_tmp_reg[23]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[21].remd_tmp_reg[22]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[20].remd_tmp_reg[21]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[19].remd_tmp_reg[20]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[18].remd_tmp_reg[19]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[17].remd_tmp_reg[18]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[16].remd_tmp_reg[17]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[15].remd_tmp_reg[16]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[14].remd_tmp_reg[15]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[13].remd_tmp_reg[14]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[12].remd_tmp_reg[13]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[11].remd_tmp_reg[12]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[10].remd_tmp_reg[11]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[9].remd_tmp_reg[10]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[8].remd_tmp_reg[9]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[7].remd_tmp_reg[8]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[6].remd_tmp_reg[7]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[5].remd_tmp_reg[6]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[4].remd_tmp_reg[5]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[3].remd_tmp_reg[4]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[2].remd_tmp_reg[3]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[1].remd_tmp_reg[2]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+WARNING: [Synth 8-3936] Found unconnected internal register 'loop[0].remd_tmp_reg[1]' and it is trimmed from '31' to '30' bits. [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_urem_31ns_4ns_3_35_1.v:51]
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'blur_edge_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'blur_edge_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'blur_edge_regslice_both'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'blur_edge_regslice_both__parameterized0'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'blur_edge_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'blur_edge_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'blur_edge_regslice_both'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'blur_edge_regslice_both__parameterized0'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 2249.023 ; gain = 651.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 155   
+	   2 Input   32 Bit       Adders := 4     
+	   2 Input   31 Bit       Adders := 1     
+	   3 Input   17 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   7 Input   15 Bit       Adders := 1     
+	   2 Input   15 Bit       Adders := 3     
+	   3 Input   14 Bit       Adders := 1     
+	   6 Input   14 Bit       Adders := 1     
+	   3 Input   13 Bit       Adders := 2     
+	   4 Input   13 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 1     
+	   3 Input   12 Bit       Adders := 1     
+	   2 Input   12 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 1     
+	   4 Input   10 Bit       Adders := 2     
+	   5 Input   10 Bit       Adders := 2     
+	   3 Input    9 Bit       Adders := 9     
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 6     
+	               31 Bit    Registers := 165   
+	               30 Bit    Registers := 150   
+	               16 Bit    Registers := 1     
+	               15 Bit    Registers := 2     
+	               10 Bit    Registers := 36    
+	                8 Bit    Registers := 65    
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 161   
+	                3 Bit    Registers := 25    
+	                2 Bit    Registers := 15    
+	                1 Bit    Registers := 460   
++---Multipliers : 
+	              33x33  Multipliers := 1     
++---RAMs : 
+	               5K Bit	(640 X 8 bit)          RAMs := 5     
++---Muxes : 
+	   2 Input   30 Bit        Muxes := 150   
+	   2 Input   15 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 11    
+	   4 Input    8 Bit        Muxes := 4     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 5     
+	   2 Input    3 Bit        Muxes := 9     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 141   
+	   3 Input    2 Bit        Muxes := 42    
+	   4 Input    2 Bit        Muxes := 14    
+	   2 Input    1 Bit        Muxes := 65    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-6014] Unused sequential element mul_32ns_32ns_64_1_1_U46/tmp_product was removed.  [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_mul_32ns_32ns_64_1_1.v:41]
+WARNING: [Synth 8-6014] Unused sequential element mul_ln14_reg_184_reg was removed.  [c:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.gen/sources_1/bd/design_1/ipshared/f6e8/hdl/verilog/blur_edge_mul_32ns_32ns_64_1_1.v:41]
+DSP Report: Generating DSP mul_32ns_32ns_64_1_1_U46/tmp_product, operation Mode is: A2*B2.
+DSP Report: register height_read_reg_174_reg is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: register mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: Generating DSP mul_ln14_reg_184_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register width_read_reg_168_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: register height_read_reg_174_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: register mul_ln14_reg_184_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: Generating DSP mul_32ns_32ns_64_1_1_U46/tmp_product, operation Mode is: A2*B2.
+DSP Report: register mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: register mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_32ns_32ns_64_1_1_U46/tmp_product.
+DSP Report: Generating DSP mul_ln14_reg_184_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register width_read_reg_168_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: register mul_ln14_reg_184_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: register mul_ln14_reg_184_reg is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_ln14_reg_184_reg.
+DSP Report: operator mul_32ns_32ns_64_1_1_U46/tmp_product is absorbed into DSP mul_ln14_reg_184_reg.
+WARNING: [Synth 8-7129] Port reset in module blur_edge_urem_31ns_4ns_3_35_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TUSER[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TID[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_TDEST[0] in module blur_edge_blur_edge_Pipeline_row_loop_col_loop is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_control_AWADDR[1] in module blur_edge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axi_control_AWADDR[0] in module blur_edge is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_user_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_user_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_id_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_id_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_dest_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_src_V_dest_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_user_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_user_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_id_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_id_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_dest_V_U/FSM_sequential_state_reg[1]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (regslice_both_dst_V_dest_V_U/FSM_sequential_state_reg[0]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_32ns_32ns_64_1_1_U46/tmp_product) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[47]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[46]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[45]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[44]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[43]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[42]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[41]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[40]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[39]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[38]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[37]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[36]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[35]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[34]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[33]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[32]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[31]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[30]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[29]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[28]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[27]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[26]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[25]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[24]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[23]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[22]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[21]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[20]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[19]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[18]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[17]) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_32ns_32ns_64_1_1_U46/tmp_product__18) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[47]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[46]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[45]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[44]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[43]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[42]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[41]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[40]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[39]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[38]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[37]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[36]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[35]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[34]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[33]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[32]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[31]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[30]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[29]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[28]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[27]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[26]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[25]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[24]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[23]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[22]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[21]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[20]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[19]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[18]__0) is unused and will be removed from module blur_edge.
+WARNING: [Synth 8-3332] Sequential element (mul_ln14_reg_184_reg[17]__0) is unused and will be removed from module blur_edge.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 2249.023 ; gain = 651.203
+---------------------------------------------------------------------------------
+ Sort Area is  mul_32ns_32ns_64_1_1_U46/tmp_product_0 : 0 0 : 3137 5997 : Used 1 time 0
+ Sort Area is  mul_32ns_32ns_64_1_1_U46/tmp_product_0 : 0 1 : 2860 5997 : Used 1 time 0
+ Sort Area is  mul_32ns_32ns_64_1_1_U46/tmp_product_3 : 0 0 : 2793 5532 : Used 1 time 0
+ Sort Area is  mul_32ns_32ns_64_1_1_U46/tmp_product_3 : 0 1 : 2739 5532 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name                                          | RTL Object                                                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_U/ram_reg   | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|blur_edge   | A2*B2            | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|blur_edge   | (PCIN>>17)+A2*B2 | 16     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|blur_edge   | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|blur_edge   | (PCIN>>17)+A2*B2 | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
++------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:33 ; elapsed = 00:01:40 . Memory (MB): peak = 2656.402 ; gain = 1058.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:58 ; elapsed = 00:02:06 . Memory (MB): peak = 3179.840 ; gain = 1582.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name                                          | RTL Object                                                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_U/ram_reg | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
+|inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106 | blur_edge_stream_stream_axis_0_int_int_int_line_buf_U/ram_reg   | 640 x 8(READ_FIRST)    | W |   | 640 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 1               | 
++-----------------------------------------------------+-----------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/blur_edge_stream_stream_axis_0_int_int_int_line_buf_4_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/blur_edge_stream_stream_axis_0_int_int_int_line_buf_3_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/blur_edge_stream_stream_axis_0_int_int_int_line_buf_2_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/blur_edge_stream_stream_axis_0_int_int_int_line_buf_1_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/blur_edge_stream_stream_axis_0_int_int_int_line_buf_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:01 ; elapsed = 00:02:10 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:08 ; elapsed = 00:02:17 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:08 ; elapsed = 00:02:17 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:09 ; elapsed = 00:02:18 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:09 ; elapsed = 00:02:18 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:09 ; elapsed = 00:02:18 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:09 ; elapsed = 00:02:18 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                                                                                           | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[1].dividend_tmp_reg[2][30]   | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[2].dividend_tmp_reg[3][30]   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[3].dividend_tmp_reg[4][30]   | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[4].dividend_tmp_reg[5][30]   | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[5].dividend_tmp_reg[6][30]   | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[6].dividend_tmp_reg[7][30]   | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[7].dividend_tmp_reg[8][30]   | 10     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[8].dividend_tmp_reg[9][30]   | 11     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[9].dividend_tmp_reg[10][30]  | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[10].dividend_tmp_reg[11][30] | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[11].dividend_tmp_reg[12][30] | 14     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[12].dividend_tmp_reg[13][30] | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[13].dividend_tmp_reg[14][30] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[14].dividend_tmp_reg[15][30] | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[15].dividend_tmp_reg[16][30] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[16].dividend_tmp_reg[17][30] | 19     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[17].dividend_tmp_reg[18][30] | 20     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[18].dividend_tmp_reg[19][30] | 21     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[19].dividend_tmp_reg[20][30] | 22     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[20].dividend_tmp_reg[21][30] | 23     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[21].dividend_tmp_reg[22][30] | 24     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[22].dividend_tmp_reg[23][30] | 25     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[23].dividend_tmp_reg[24][30] | 26     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[24].dividend_tmp_reg[25][30] | 27     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[25].dividend_tmp_reg[26][30] | 28     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[26].dividend_tmp_reg[27][30] | 29     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[27].dividend_tmp_reg[28][30] | 30     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[28].dividend_tmp_reg[29][30] | 31     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U1/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[29].dividend_tmp_reg[30][30] | 32     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[1].dividend_tmp_reg[2][30]   | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[2].dividend_tmp_reg[3][30]   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[3].dividend_tmp_reg[4][30]   | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[4].dividend_tmp_reg[5][30]   | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[5].dividend_tmp_reg[6][30]   | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[6].dividend_tmp_reg[7][30]   | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[7].dividend_tmp_reg[8][30]   | 10     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[8].dividend_tmp_reg[9][30]   | 11     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[9].dividend_tmp_reg[10][30]  | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[10].dividend_tmp_reg[11][30] | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[11].dividend_tmp_reg[12][30] | 14     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[12].dividend_tmp_reg[13][30] | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[13].dividend_tmp_reg[14][30] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[14].dividend_tmp_reg[15][30] | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[15].dividend_tmp_reg[16][30] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[16].dividend_tmp_reg[17][30] | 19     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[17].dividend_tmp_reg[18][30] | 20     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[18].dividend_tmp_reg[19][30] | 21     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[19].dividend_tmp_reg[20][30] | 22     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[20].dividend_tmp_reg[21][30] | 23     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[21].dividend_tmp_reg[22][30] | 24     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[22].dividend_tmp_reg[23][30] | 25     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[23].dividend_tmp_reg[24][30] | 26     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[24].dividend_tmp_reg[25][30] | 27     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[25].dividend_tmp_reg[26][30] | 28     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[26].dividend_tmp_reg[27][30] | 29     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[27].dividend_tmp_reg[28][30] | 30     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[28].dividend_tmp_reg[29][30] | 31     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U2/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[29].dividend_tmp_reg[30][30] | 32     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[1].dividend_tmp_reg[2][30]   | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[2].dividend_tmp_reg[3][30]   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[3].dividend_tmp_reg[4][30]   | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[4].dividend_tmp_reg[5][30]   | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[5].dividend_tmp_reg[6][30]   | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[6].dividend_tmp_reg[7][30]   | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[7].dividend_tmp_reg[8][30]   | 10     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[8].dividend_tmp_reg[9][30]   | 11     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[9].dividend_tmp_reg[10][30]  | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[10].dividend_tmp_reg[11][30] | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[11].dividend_tmp_reg[12][30] | 14     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[12].dividend_tmp_reg[13][30] | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[13].dividend_tmp_reg[14][30] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[14].dividend_tmp_reg[15][30] | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[15].dividend_tmp_reg[16][30] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[16].dividend_tmp_reg[17][30] | 19     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[17].dividend_tmp_reg[18][30] | 20     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[18].dividend_tmp_reg[19][30] | 21     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[19].dividend_tmp_reg[20][30] | 22     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[20].dividend_tmp_reg[21][30] | 23     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[21].dividend_tmp_reg[22][30] | 24     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[22].dividend_tmp_reg[23][30] | 25     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[23].dividend_tmp_reg[24][30] | 26     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[24].dividend_tmp_reg[25][30] | 27     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[25].dividend_tmp_reg[26][30] | 28     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[26].dividend_tmp_reg[27][30] | 29     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[27].dividend_tmp_reg[28][30] | 30     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[28].dividend_tmp_reg[29][30] | 31     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U3/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[29].dividend_tmp_reg[30][30] | 32     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[1].dividend_tmp_reg[2][30]   | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[2].dividend_tmp_reg[3][30]   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[3].dividend_tmp_reg[4][30]   | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[4].dividend_tmp_reg[5][30]   | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[5].dividend_tmp_reg[6][30]   | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[6].dividend_tmp_reg[7][30]   | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[7].dividend_tmp_reg[8][30]   | 10     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[8].dividend_tmp_reg[9][30]   | 11     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[9].dividend_tmp_reg[10][30]  | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[10].dividend_tmp_reg[11][30] | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[11].dividend_tmp_reg[12][30] | 14     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[12].dividend_tmp_reg[13][30] | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[13].dividend_tmp_reg[14][30] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[14].dividend_tmp_reg[15][30] | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[15].dividend_tmp_reg[16][30] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[16].dividend_tmp_reg[17][30] | 19     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[17].dividend_tmp_reg[18][30] | 20     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[18].dividend_tmp_reg[19][30] | 21     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[19].dividend_tmp_reg[20][30] | 22     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[20].dividend_tmp_reg[21][30] | 23     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[21].dividend_tmp_reg[22][30] | 24     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[22].dividend_tmp_reg[23][30] | 25     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[23].dividend_tmp_reg[24][30] | 26     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[24].dividend_tmp_reg[25][30] | 27     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[25].dividend_tmp_reg[26][30] | 28     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[26].dividend_tmp_reg[27][30] | 29     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[27].dividend_tmp_reg[28][30] | 30     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[28].dividend_tmp_reg[29][30] | 31     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U4/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[29].dividend_tmp_reg[30][30] | 32     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[1].dividend_tmp_reg[2][30]   | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[2].dividend_tmp_reg[3][30]   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[3].dividend_tmp_reg[4][30]   | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[4].dividend_tmp_reg[5][30]   | 7      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[5].dividend_tmp_reg[6][30]   | 8      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[6].dividend_tmp_reg[7][30]   | 9      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[7].dividend_tmp_reg[8][30]   | 10     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[8].dividend_tmp_reg[9][30]   | 11     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[9].dividend_tmp_reg[10][30]  | 12     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[10].dividend_tmp_reg[11][30] | 13     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[11].dividend_tmp_reg[12][30] | 14     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[12].dividend_tmp_reg[13][30] | 15     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[13].dividend_tmp_reg[14][30] | 16     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[14].dividend_tmp_reg[15][30] | 17     | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[15].dividend_tmp_reg[16][30] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[16].dividend_tmp_reg[17][30] | 19     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[17].dividend_tmp_reg[18][30] | 20     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[18].dividend_tmp_reg[19][30] | 21     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[19].dividend_tmp_reg[20][30] | 22     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[20].dividend_tmp_reg[21][30] | 23     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[21].dividend_tmp_reg[22][30] | 24     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[22].dividend_tmp_reg[23][30] | 25     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[23].dividend_tmp_reg[24][30] | 26     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[24].dividend_tmp_reg[25][30] | 27     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[25].dividend_tmp_reg[26][30] | 28     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[26].dividend_tmp_reg[27][30] | 29     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[27].dividend_tmp_reg[28][30] | 30     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[28].dividend_tmp_reg[29][30] | 31     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/urem_31ns_4ns_3_35_1_U5/blur_edge_urem_31ns_4ns_3_35_1_divider_u/loop[29].dividend_tmp_reg[30][30] | 32     | 1     | NO           | NO                 | YES               | 0      | 1       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/icmp_ln34_reg_2332_pp0_iter34_reg_reg[0]                                                           | 34     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/window_43_reg_2389_pp0_iter34_reg_reg[7]                                                           | 34     | 8     | NO           | NO                 | YES               | 0      | 16      | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/select_ln34_reg_2336_pp0_iter34_reg_reg[9]                                                         | 34     | 10    | NO           | NO                 | YES               | 0      | 20      | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/cmp34_2_reg_2374_pp0_iter36_reg_reg[0]                                                             | 36     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/empty_39_reg_2442_pp0_iter36_reg_reg[2]                                                            | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/cmp34_1_reg_2364_pp0_iter36_reg_reg[0]                                                             | 36     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/empty_36_reg_2437_pp0_iter36_reg_reg[2]                                                            | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/cmp34_3_reg_2384_pp0_iter36_reg_reg[0]                                                             | 36     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/empty_41_reg_2447_pp0_iter36_reg_reg[2]                                                            | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/cmp34_reg_2354_pp0_iter36_reg_reg[0]                                                               | 36     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/empty_33_reg_2432_pp0_iter36_reg_reg[2]                                                            | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/icmp14_reg_2487_pp0_iter37_reg_reg[0]                                                              | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/icmp11_reg_2424_pp0_iter37_reg_reg[0]                                                              | 37     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/pix_out_keep_reg_2409_pp0_iter37_reg_reg[0]                                                        | 37     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/pix_out_strb_reg_2414_pp0_iter37_reg_reg[0]                                                        | 37     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/pix_out_last_reg_2419_pp0_iter37_reg_reg[0]                                                        | 37     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|blur_edge   | grp_blur_edge_Pipeline_row_loop_col_loop_fu_106/ap_loop_exit_ready_pp0_iter37_reg_reg                                                              | 36     | 1     | NO           | NO                 | YES               | 0      | 2       | 
++------------+----------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|blur_edge   | (PCIN>>17+A'*B')' | 15     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|blur_edge   | (PCIN>>17+A*B')'  | 0      | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|blur_edge   | A'*B'             | 17     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|blur_edge   | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |CARRY8          |   464|
+|2     |DSP_ALU         |     4|
+|3     |DSP_A_B_DATA    |     4|
+|4     |DSP_C_DATA      |     4|
+|5     |DSP_MULTIPLIER  |     4|
+|6     |DSP_M_DATA      |     4|
+|7     |DSP_OUTPUT      |     4|
+|9     |DSP_PREADD      |     4|
+|10    |DSP_PREADD_DATA |     4|
+|11    |LUT1            |  2315|
+|12    |LUT2            |   301|
+|13    |LUT3            |  2521|
+|14    |LUT4            |   123|
+|15    |LUT5            |   287|
+|16    |LUT6            |   544|
+|17    |MUXF7           |    14|
+|18    |RAMB18E2        |     5|
+|19    |SRL16E          |    93|
+|20    |SRLC32E         |   131|
+|21    |FDRE            |  3205|
+|22    |FDSE            |     3|
++------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:09 ; elapsed = 00:02:18 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 119 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:46 ; elapsed = 00:02:06 . Memory (MB): peak = 3185.188 ; gain = 1484.559
+Synthesis Optimization Complete : Time (s): cpu = 00:02:10 ; elapsed = 00:02:19 . Memory (MB): peak = 3185.188 ; gain = 1587.367
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 3185.188 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 482 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3185.188 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 4 instances
+
+Synth Design complete | Checksum: ad135e9d
+INFO: [Common 17-83] Releasing license: Synthesis
+64 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:25 ; elapsed = 00:02:38 . Memory (MB): peak = 3185.188 ; gain = 2484.992
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.032 . Memory (MB): peak = 3185.188 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/design_1_blur_edge_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_blur_edge_0_0, cache-ID = a7aa3900606a53f1
+INFO: [Coretcl 2-1174] Renamed 28 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.032 . Memory (MB): peak = 3185.188 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/gao.hen/Desktop/parallelism/eece4632/parallelismvivado/parallelism/parallelism.runs/design_1_blur_edge_0_0_synth_1/design_1_blur_edge_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_blur_edge_0_0_utilization_synth.rpt -pb design_1_blur_edge_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 22 16:12:45 2026...

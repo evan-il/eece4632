@@ -1,0 +1,4 @@
+ERROR: Exception caught trying to open file C:\Users\gao.hen\Desktop\parallelism\eece4632\parallelismvivado\parallelism\parallelism.runs\design_1_zynq_ultra_ps_e_0_0_synth_1/runme.log
+	Exception name: Error
+	Exception error code: 70
+	Exception message: Permission denied

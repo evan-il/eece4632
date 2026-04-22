@@ -68,7 +68,7 @@ void edge_detect(
             } else {
                 result = (mag >= (accum_t)threshold) ? (pixel_t)255 : (pixel_t)0;
             }
-
+//hi
             // ---- 7. Write output pixel, preserving stream sideband signals ----
             axis_t pix_out;
             pix_out.data = result;
