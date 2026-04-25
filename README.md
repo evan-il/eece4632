@@ -1,1 +1,0 @@
-To run this program: download the input.mp4 file, bitstream files (.bit, .h, .cpp), and zynq_gaussiain_blur.ipynb. From there, run the jupyter notebook and the program will auto generate a output_frames folder and result video. 
